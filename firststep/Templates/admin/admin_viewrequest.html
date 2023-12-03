@@ -1,0 +1,42 @@
+{% extends 'admin/adminbase.html' %}
+
+{% block title%}
+<title>View sub-category || First-Step</title>
+{% endblock %}
+
+
+{% block alert %}
+
+{% include 'admin/alerts.html' %}
+
+{% endblock %}  
+
+
+
+{% block content %}
+
+{% for i in req %}
+<div class="card">
+    <div class="card-header">
+        <h4></h4>
+    </div>
+    <div class="card-body">
+        <p class="text-muted m-b-15"><code></code> </p>
+        <ul class="list-unstyled">
+            <li><a href="#">Seller name : {{i.user.first_name}}</a></li>
+            <li><a href="#">Type : {{i.topic}}</a></li>
+            <li><a href="#">Request messege : {{i.request}}</a></li>
+            <li><a href="#">Date : {{i.created_date}}</a></li>
+            <li><a href="#">Status : {{i.status}}</a></li>
+        </ul>
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="request_id" value="{{ i.id }}">
+            <button type="submit" name="status" value="accept" class="btn btn-primary btn-sm">Accept</button>
+            <button type="submit" name="status" value="rejected" class="btn btn-danger btn-sm">Reject</button>
+        </form>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

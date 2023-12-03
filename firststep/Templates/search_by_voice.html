@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search By Voice</title>
+  </head>
+  <body>
+    <h1>Search By Voice</h1>
+    <form method="post" action="{% url 'search_by_voice' %}">
+      {% csrf_token %}
+      <label for="voice-input">Search By Voice:</label>
+      <input type="text" id="voice-input" name="voice-input" readonly>
+      <button type="button" id="start-button">Start</button>
+      <button type="button" id="stop-button" disabled>Stop</button>
+      <button type="submit">Search</button>
+    </form>
+    <script>
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const recognition = new SpeechRecognition();
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
+
+      document.querySelector('#start-button').addEventListener('click', () => {
+        recognition.start();
+        document.querySelector('#start-button').disabled = true;
+        document.querySelector('#stop-button').disabled = false;
+      });
+
+      document.querySelector('#stop-button').addEventListener('click', () => {
+        recognition.stop();
+        document.querySelector('#start-button').disabled = false;
+        document.querySelector('#stop-button').disabled = true;
+      });
+
+      recognition.addEventListener('result', (event) => {
+        const transcript = Array.from(event.results)
+          .map(result => result[0])
+          .map(result => result.transcript)
+          .join('');
+
+        document.querySelector('#voice-input').value = transcript;
+      });
+    </script>
+  </body>
+</html>

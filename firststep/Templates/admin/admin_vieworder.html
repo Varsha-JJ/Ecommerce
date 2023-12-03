@@ -1,0 +1,39 @@
+{% extends 'admin/adminbase.html' %}
+
+{% block title%}
+<title>View order || First-Step</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="card-header">
+    <strong class="card-title">All sub-categories</strong>
+</div>
+<div class="card-body">
+    <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Seller Name</th>
+                <th>Customer name</th>
+                <th>Size</th>
+                <th>Quantity</th>
+                <th>Ordered Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in order_list %}
+            <tr>
+                <td>{{s.product.name}}</td>
+                <td>{{s.seller}}</td>
+                <td>{{s.buyer}}</td>
+                <td>{{s.order.size}}</td>
+                <td>{{s.order.quantity}}</td>
+                <td>{{s.order.ordered_date}}</td>
+            </tr>
+            {% endfor %}
+         </tbody>
+    </table>
+</div>
+
+{% endblock %}

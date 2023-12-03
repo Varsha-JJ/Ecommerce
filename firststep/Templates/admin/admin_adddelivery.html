@@ -1,0 +1,319 @@
+{% extends 'admin/adminbase.html' %}
+
+{% block title%}
+<title>Add delivery || First-Step</title>
+{% endblock %}
+
+
+{% block script %}
+<script>
+function validation(){
+        var fname=document.getElementById('f-name').value;
+        var regx = /^[A-Za-z]+$/;
+
+          if(fname==""){
+             document.getElementById('name').innerHTML="**Please enter your firstname";
+             return false;
+          }
+          else{
+             document.getElementById('name').innerHTML="";
+          }
+
+          if((fname.length<=3)||(fname.length>20)){
+             document.getElementById('name').innerHTML="**your firstname must include more characters";
+             return false;
+          }
+          else{
+             document.getElementById('name').innerHTML="";
+          }
+
+          
+          if(!fname.match(/^[a-zA-Z\s, ]+$/)){
+
+             document.getElementById('name').innerHTML="**Only characters are allowed";
+             return false;
+
+          }
+          else{
+             document.getElementById('name').innerHTML="";
+          }
+
+
+          var lname=document.getElementById('l-name').value;
+          if(lname==""){
+             document.getElementById('names').innerHTML="**Please enter your lastname";
+             return false;
+          }
+          else{
+             document.getElementById('names').innerHTML="";
+          }
+
+          if((lname.length<=1)||(lname.length>20)){
+             document.getElementById('names').innerHTML="**your firstname must include more characters";
+             return false;
+          }
+          else{
+             document.getElementById('names').innerHTML="";
+          }
+
+
+          if(!lname.match(/^[A-Za-z\s, ]+$/)){
+
+            document.getElementById('names').innerHTML="**Only characters are allowed";
+            return false;
+
+            }
+            else{
+            document.getElementById('names').innerHTML="";
+            }
+        
+        var detail=document.getElementById('details').value;
+
+        if(detail==""){
+        document.getElementById('addr').innerHTML="**Please enter your address";
+        return false;
+        }
+        else{
+        document.getElementById('addr').innerHTML="";
+        }
+        if((detail.length<=4)||(detail.length>60)){
+
+        document.getElementById('addr').innerHTML="**User length must include more characters";
+        return false;
+
+        }
+        else{
+        document.getElementById('addr').innerHTML="";
+        }
+
+        if (!detail.match(/^[a-zA-Z\s,()'-]*$/)) 
+        {
+            document.getElementById('mail').innerHTML="**enter a Valid Email";
+            return false;
+        }
+        else{
+            document.getElementById('mail').value = "";
+        }
+    
+        var val = document.getElementById('email').value;
+        if(val==""){
+        document.getElementById('mail').innerHTML="**Please enter your address";
+        return false;
+        }
+        else{
+        document.getElementById('mail').innerHTML="";
+        }
+
+        if (!val.match(/([A-z0-9_\-\.]){1,}\@([A-z0-9_\-\.]){1,}\.([A-Za-z]){2,4}$/)) 
+        {
+            document.getElementById('mail').innerHTML="**enter a Valid Email";
+            return false;
+        }
+        else{
+            document.getElementById('mail').value = "";
+        }
+
+
+        var phon=document.getElementById('phoneno').value;
+        if(phon==""){
+
+            document.getElementById('pho').innerHTML="**Please enter your phone number";
+            return false;
+        }
+        else{
+            document.getElementById('pho').innerHTML="";
+        }
+        if(!phon.match(/^[6-9][0-9]{9}$/)){
+
+            document.getElementById('pho').innerHTML="**Please enter a valid phone number";
+            return false;
+        }
+        else{
+            document.getElementById('pho').innerHTML="";
+        }
+        if(phon.length!=10){
+
+            document.getElementById('pho').innerHTML="**Phone number must be 10 digits only";
+            return false;
+        }
+        else{
+            document.getElementById('pho').innerHTML="";
+        }
+
+
+        var cities=document.getElementById('city').value;
+        if(cities==""){
+        document.getElementById('cit').innerHTML="**Please enter your city";
+        return false;
+        }
+        else{
+            document.getElementById('cit').innerHTML="";
+        }
+        if(!cities.match(/^[a-zA-Z\s, ]+$/)){
+        document.getElementById('cit').innerHTML="**enter a valid city";
+        return false;
+        }
+        else{
+        document.getElementById('cit').innerHTML="";
+        }
+        if((cities.length<=4)||(detail.length>60)){
+
+        document.getElementById('cit').innerHTML="**User length must include more characters";
+        return false;
+
+        }
+        else{
+        document.getElementById('cit').innerHTML="";
+        }
+
+        var cities=document.getElementById('district').value;
+        if(cities==""){
+        document.getElementById('states').innerHTML="**Please enter your district";
+        return false;
+        }
+        else{
+            document.getElementById('states').innerHTML="";
+        }
+        if(!cities.match(/^[a-zA-Z\s, ]+$/)){
+        document.getElementById('states').innerHTML="**enter a valid district";
+        return false;
+        }
+        else{
+        document.getElementById('states').innerHTML="";
+        }
+        if((cities.length<=3)||(detail.length>60)){
+
+        document.getElementById('states').innerHTML="**User length must include more characters";
+        return false;
+
+        }
+        else{
+        document.getElementById('states').innerHTML="";
+        }
+
+        var code=document.getElementById('pincode').value;  
+        if (code=="")   
+        {  
+            document.getElementById('pin').innerHTML="**Please enter the pincode";
+            return false;
+        }   
+        else   
+        {  
+            document.getElementById('pin').innerHTML=""; 
+        } 
+       
+        if(!code.match(/^[6][0-9]{5}$/)){
+
+        document.getElementById('pin').innerHTML="**enter a valid pincode";
+        return false;
+
+        }
+        else{
+        document.getElementById('pin').innerHTML="";
+        }
+        if(code.length!=6){
+
+        document.getElementById('pin').innerHTML="**enter a valid pincode";
+        return false;
+        }
+        else{
+        document.getElementById('pin').innerHTML="";
+        }
+        }
+</script>
+{% endblock %}
+
+
+
+{% block alert %}
+
+{% include 'admin/alerts.html' %}
+
+{% endblock %}  
+
+
+{% block content %}
+<div class="card-header">
+    <strong>Add delivery</strong> 
+</div>
+<div class="card-body card-block">
+    <form action="{% url 'admin_adddelivery' %}" method="POST" onclick="return validation()" class="form-horizontal" enctype="multipart/form-data" >
+        {% csrf_token %}
+        <div class="row form-group">
+            <div class="col col-md-3">
+                <label for="hf-email" class=" form-control-label">First name</label>
+            </div>
+            <div class="col-12 col-md-9">
+                <input type="text" id="f-name" name="fname" placeholder="Enter first name..." onkeyup='firstnameValidation(this)' class="form-control" required>
+                <span id="name" class="new" style="color: red;"></span> 
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col col-md-3">
+                <label for="hf-email" class=" form-control-label">Last name</label>
+            </div>
+            <div class="col-12 col-md-9">
+                <input type="text" id="l-name" name="lname" placeholder="Enter last name..." onkeyup='firstnamesValidation(this)' class="form-control" required>
+                <span id="names" class="new" style="color: red;"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col col-md-3">
+                <label for="hf-email" class=" form-control-label">Address</label>
+            </div>
+            <div class="col-12 col-md-9">
+                <input type="text" id="details" name="address" placeholder="Enter address..." class="form-control" onkeyup='addressValidation(this)' required>
+                <span id="addr" class="new" style="color: red;"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col col-md-3">
+                <label for="hf-email" class=" form-control-label">Email</label>
+            </div>
+            <div class="col-12 col-md-9">
+                <input type="email" id="email" name="email" placeholder="Enter email..." onkeyup='emailValidation(this)' class="form-control" required>
+                <span id="mail" class="new" style="color: red;"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-4">
+                <label for="inputIsValid" class=" form-control-label">Contact</label>
+                <input type="text" name="phone" id="phoneno" placeholder="Enter phone" class="form-control" onkeyup='phoneValidation(this)' required>
+                <span id="pho" class="new" style="color: red;"></span>
+            </div>
+            <div class="col-4">
+                <label for="inputIsValid" class=" form-control-label">City</label>
+                <input type="text" name="city" id="city" placeholder="Enter city" class="form-control" onkeyup='cityValidation(this)' required>
+                <span id="cit" class="new" style="color: red;"></span>
+            </div>
+            <div class="col-4">
+                <label for="inputIsValid" class=" form-control-label">State</label>
+                <input type="text" name="state" id="district" placeholder="Enter state" class="form-control" onkeyup='districtValidation(this)' required>
+                <span id="states" class="new" style="color: red;"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-4">
+                <label for="inputIsValid" class=" form-control-label">Pincode</label>
+                <input type="text" id="pincode" name="pincode" placeholder="Enter Pincode" onkeyup='pincodeValidation(this)' class="form-control" required>
+                <span id="pin" class="new" style="color: red;"></span>
+            </div>
+        </div>
+        <div  class="row form-group">
+            <div class="col col-md-3">
+            <label>Approve</label></div>
+            <div class="col-12 col-md-9">
+            <input type="checkbox" name="approve" required >
+            <!-- <input type="hidden" name="prev_approve" value="{% if user.approved_staff %}True{% else %}False{% endif %}"> -->
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+        </div>
+        
+    </form>
+</div>
+
+
+
+{% endblock %}

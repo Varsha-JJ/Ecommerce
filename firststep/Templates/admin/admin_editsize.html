@@ -1,0 +1,35 @@
+{% extends 'admin/adminbase.html' %}
+
+{% block title%}
+<title>Edit Size || First-Step</title>
+{% endblock %}
+
+
+ 
+
+{% block content %}
+<div class="card-header">
+    <strong>Add size</strong> 
+</div>
+<div class="card-body card-block">
+    <form  method="POST" action="{% url 'admin_updatesize' %}" class="form-horizontal" enctype="multipart/form-data" accept-charset="utf-8">
+        {% csrf_token %}
+        <div class="row form-group">
+            <div class="col col-md-3">
+                <label for="hf-email" class=" form-control-label">Enter size</label>
+            </div>
+            <div class="col-12 col-md-9">
+                <input type="text" id="hf-email" name="size_id" value="{{sizes.id}}" class="form-control" hidden>
+                <input type="text" id="hf-email" name="sizes" value="{{sizes.name}}" class="form-control" required>
+            <!-- <span class="help-block">Please enter sub-category name</span> -->
+        </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary btn-sm">Save</button>
+        </div>
+    </form>
+</div>
+</div>
+
+
+{% endblock %}

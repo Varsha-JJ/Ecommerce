@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+{% block title%}
+<title>About || First-Step</title>
+{% endblock %}
+{% block path %}
+<li class="active"><a href="{% url 'aboutus' %}">About</a></li>
+{% endblock %}
+{% load  static %}
+<!-- About Main Area Start -->
+<div class="about-main-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 col-md-12">
+                <div class="about-img">
+            <img class="img" src="{% static 'img/banner/about.jpg' %}" width="680" height="450" alt="about-us">
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-12">
+                <div class="about-content">
+                    <h3>Why We are?</h3>
+                    <p>We are a one-stop-shop for parents and caregivers who are looking for high-quality, affordable and fun items for their little ones.At our store, we believe that children should have access to products that stimulate their creativity, imagination, and curiosity.</p> <br>
+                    <p>We understand that safety is a top priority for parents, which is why we only sell products that meet or exceed the highest safety standards. Our team carefully selects every item in our store to ensure that they are not only fun, but also durable and safe for kids to use.</p>
+                    <!-- <ul class="mt-20 about-content-list">
+                        <li><a href="#">Amazing wordpress theme</a></li>
+                        <li><a href="#">HTML &amp; CSS3 build with bootstrap</a></li>
+                        <li><a href="#">Powerfull admin panel</a></li>
+                        <li><a href="#">Icon well organized &amp; SEO optimized friendy</a></li>
+                        <li><a href="#">Iconncredible design</a></li>
+                    </ul> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About Main Area End -->
+
+{% endblock content %}

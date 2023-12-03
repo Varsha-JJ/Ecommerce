@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+{% block title%}
+<title>Checkout || First-step</title>
+{% endblock %}
+
+{% block path %}
+<li class="active"><a href="{% url 'checkout' %}">Checkout</a></li>
+{% endblock %}
+{% block content %}
+<!-- checkout-area start -->
+<div class="checkout-area pt-30  pb-60">
+    <div class="container">
+        <form action="#">                
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="checkbox-form">
+                        <h3>Billing Details</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="checkout-form-list">
+                                    <label>First Name <span class="required">*</span></label>
+                                    <input type="text" name="fname" value="{{user.first_name}}" readonly/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="checkout-form-list mb-30">
+                                    <label>Last Name <span class="required">*</span></label>
+                                    <input type="text" name="lname" value="{{user.last_name}}" readonly/>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="checkout-form-list">
+                                    <label>Address <span class="required">*</span></label>
+                                    <input type="text" name="addres" value="{{user.address}}" readonly/>
+                                </div>
+                            </div><br>
+                            <div class="col-md-12">
+                                <div class="checkout-form-list mb-30">
+                                    <label>Town / City <span class="required">*</span></label>
+                                    <input type="text"  name="city" value="{{user.city}}" readonly/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="checkout-form-list mb-30">
+                                    <label>State / County <span class="required">*</span></label>
+                                    <input type="text" name="district" value="{{user.state}}" readonly/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="checkout-form-list mb-30">
+                                    <label>Pincode  <span class="required">*</span></label>
+                                    <input type="text" name="pincode" value="{{user.pincode}}" readonly/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="checkout-form-list mb-30">
+                                    <label>Phone  <span class="required">*</span></label>
+                                    <input type="text" name="phone" value="{{user.contact}}" readonly/>
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-7">
+                                <div class="buttons-cart">
+                                    <!-- <input type="submit" value="Update Cart" /> -->
+                                    <a href="{% url 'shop' %}">Continue Shopping</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="your-order">
+                        <h3>Your order</h3>
+                        <div class="your-order-table table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="product-name">Product</th>
+                                        <th class="product-total">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for i in cart %}
+                                    <tr class="cart_item">
+                                        <td class="product-name">
+                                            {{i.product.name}}<strong class="product-quantity"> × {{i.product_qty}}</strong>
+                                        </td>
+                                        <td class="product-total">
+                                            <span class="amount">Rs.{{i.price}}</span>
+                                        </td>
+                                    </tr>
+                                    {% endfor %} 
+                                </tbody>
+                                <tfoot>
+                                    <tr class="cart-subtotal">
+                                        <th>Cart Subtotal</th>
+                                        <td><span class="amount">{{total}}</span></td>
+                                    </tr>
+                                    <tr class="order-total">
+                                        <th>Order Total</th>
+                                        <td><strong><span class="amount">{{total}}</span></strong>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="payment-method">
+                            <div class="payment-accordion">
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <!-- <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Direct Bank Transfer
+                                            </a>
+                                            </h4> -->
+                                        </div>
+                                        <!-- <div id="collapseOne" class="panel-collapse collapse  in show" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="panel-body">
+                                                <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <!-- <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            Cheque Payment
+                                            </a>
+                                            </h4> -->
+                                        </div>
+                                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                            <!-- <div class="panel-body">
+                                                <p>Please send your cheque to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingThree">
+                                            <!-- <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            PayPal
+                                            </a>
+                                            </h4> -->
+                                        </div>
+                                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                            <!-- <div class="panel-body">
+                                                <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order-button-payment">
+                                    <input type="submit" id="rzp-button1" value="Place order" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+         </form>   
+    </div>
+</div>
+<script>
+    var options = {
+        "key": 'rzp_test_ou7rNcgJfkqsyG', // Enter the Key ID generated from the Dashboard
+        "amount": "{{razoramount}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        "currency": "INR",
+        "name": "First-Step",
+        "description": "Test Transaction",
+        "image": "https://example.com/your_logo",
+        "order_id": "{{order_id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+        "handler": function (response){
+            console.log("success")
+            var form = document.getElementById["myform"];
+
+
+            var a = response.razorpay_payment_id;
+
+            alert({{order_id}}'Payment Done Successfully....Continue Shopping')
+
+        window.location.href = 'http://127.0.0.1:8000/paymentdone?order_id=${response.razorpay_order_id}&user_id=${response.user}&payment_id='+a
+
+        },
+        "theme": {
+            "color": "#3399cc"
+        }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.on('payment.failed', function (response){
+            alert(response.error.description);
+    });
+    document.getElementById('rzp-button1').onclick = function(e){
+        console.log("button click");
+        rzp1.open();
+        e.preventDefault();
+    }
+    </script>
+<!-- checkout-area end -->
+
+{% endblock %}

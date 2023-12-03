@@ -1,0 +1,383 @@
+{% extends 'base.html' %}
+{% block content %}
+{% block title%}
+<title>Seller || First-Step</title>
+{% endblock %}
+<!-- {% block path %}
+<li class="active"><a href="{% url 'sellerreg' %}">Seller register</a></li> 
+ {% endblock %} --> 
+ 
+ <script>
+                
+    function validation(){
+      var fname=document.getElementById('f-name').value;
+      var regx = /^[A-Za-z]+$/;
+
+        if(fname==""){
+           document.getElementById('name').innerHTML="**Please enter your firstname";
+           return false;
+        }
+        else{
+           document.getElementById('name').innerHTML="";
+        }
+
+        if((fname.length<=3)||(fname.length>20)){
+           document.getElementById('name').innerHTML="**your firstname must include more characters";
+           return false;
+        }
+        else{
+           document.getElementById('name').innerHTML="";
+        }
+
+        
+        if(!fname.match(/^[a-zA-Z\s, ]+$/)){
+
+           document.getElementById('name').innerHTML="**Only characters are allowed";
+           return false;
+
+        }
+        else{
+           document.getElementById('name').innerHTML="";
+        }
+
+
+        var lname=document.getElementById('l-name').value;
+        if(lname==""){
+           document.getElementById('names').innerHTML="**Please enter your lastname";
+           return false;
+        }
+        else{
+           document.getElementById('names').innerHTML="";
+        }
+
+        if((lname.length<=1)||(lname.length>20)){
+           document.getElementById('names').innerHTML="**your firstname must include more characters";
+           return false;
+        }
+        else{
+           document.getElementById('names').innerHTML="";
+        }
+
+
+        if(!lname.match(/^[A-Za-z\s, ]+$/)){
+
+          document.getElementById('names').innerHTML="**Only characters are allowed";
+          return false;
+
+          }
+          else{
+          document.getElementById('names').innerHTML="";
+          }
+      
+      var detail=document.getElementById('details').value;
+
+      if(detail==""){
+      document.getElementById('addr').innerHTML="**Please enter your address";
+      return false;
+      }
+      else{
+      document.getElementById('addr').innerHTML="";
+      }
+      if((detail.length<=4)||(detail.length>60)){
+
+      document.getElementById('addr').innerHTML="**User length must include more characters";
+      return false;
+
+      }
+      else{
+      document.getElementById('addr').innerHTML="";
+      }
+
+      if (!detail.match(/^[a-zA-Z\s,()'-]*$/)) 
+      {
+          document.getElementById('mail').innerHTML="**enter a Valid Email";
+          return false;
+      }
+      else{
+          document.getElementById('mail').value = "";
+      }
+  
+      var val = document.getElementById('email').value;
+      if(val==""){
+      document.getElementById('mail').innerHTML="**Please enter your address";
+      return false;
+      }
+      else{
+      document.getElementById('mail').innerHTML="";
+      }
+
+      if (!val.match(/([A-z0-9_\-\.]){1,}\@([A-z0-9_\-\.]){1,}\.([A-Za-z]){2,4}$/)) 
+      {
+          document.getElementById('mail').innerHTML="**enter a Valid Email";
+          return false;
+      }
+      else{
+          document.getElementById('mail').value = "";
+      }
+
+
+      var phon=document.getElementById('phoneno').value;
+      if(phon==""){
+
+          document.getElementById('pho').innerHTML="**Please enter your phone number";
+          return false;
+      }
+      else{
+          document.getElementById('pho').innerHTML="";
+      }
+      if(!phon.match(/^[6-9][0-9]{9}$/)){
+
+          document.getElementById('pho').innerHTML="**Please enter a valid phone number";
+          return false;
+      }
+      else{
+          document.getElementById('pho').innerHTML="";
+      }
+      if(phon.length!=10){
+
+          document.getElementById('pho').innerHTML="**Phone number must be 10 digits only";
+          return false;
+      }
+      else{
+          document.getElementById('pho').innerHTML="";
+      }
+
+
+      var cities=document.getElementById('city').value;
+      if(cities==""){
+      document.getElementById('cit').innerHTML="**Please enter your city";
+      return false;
+      }
+      else{
+          document.getElementById('cit').innerHTML="";
+      }
+      if(!cities.match(/^[a-zA-Z\s, ]+$/)){
+      document.getElementById('cit').innerHTML="**enter a valid city";
+      return false;
+      }
+      else{
+      document.getElementById('cit').innerHTML="";
+      }
+      if((cities.length<=4)||(detail.length>60)){
+
+      document.getElementById('cit').innerHTML="**User length must include more characters";
+      return false;
+
+      }
+      else{
+      document.getElementById('cit').innerHTML="";
+      }
+
+      var cities=document.getElementById('district').value;
+      if(cities==""){
+      document.getElementById('states').innerHTML="**Please enter your district";
+      return false;
+      }
+      else{
+          document.getElementById('states').innerHTML="";
+      }
+      if(!cities.match(/^[a-zA-Z\s, ]+$/)){
+      document.getElementById('states').innerHTML="**enter a valid district";
+      return false;
+      }
+      else{
+      document.getElementById('states').innerHTML="";
+      }
+      if((cities.length<=3)||(detail.length>60)){
+
+      document.getElementById('states').innerHTML="**User length must include more characters";
+      return false;
+
+      }
+      else{
+      document.getElementById('states').innerHTML="";
+      }
+
+      var code=document.getElementById('pincode').value;  
+      if (code=="")   
+      {  
+          document.getElementById('pin').innerHTML="**Please enter the pincode";
+          return false;
+      }   
+      else   
+      {  
+          document.getElementById('pin').innerHTML=""; 
+      } 
+     
+      if(!code.match(/^[6][0-9]{5}$/)){
+
+      document.getElementById('pin').innerHTML="**enter a valid pincode";
+      return false;
+
+      }
+      else{
+      document.getElementById('pin').innerHTML="";
+      }
+      if(code.length!=6){
+
+      document.getElementById('pin').innerHTML="**enter a valid pincode";
+      return false;
+      }
+      else{
+      document.getElementById('pin').innerHTML="";
+      }
+
+      // // var fe=document.getElementById('f').Checked;
+      // // var ma=document.getElementById('m').checked;
+      // // if(ma == true) {   
+      // //         document.getElementById("dis").innerHTML ="You have selected male any";   
+      // //         return false;
+      // //     }   
+      // //     else if(fe == true){   
+      // //         document.getElementById("dis").innerHTML = "You have selected female any";  
+      // //         return false; 
+      // //     }  
+      // //     else{
+      // //         document.getElementById("dis").innerHTML = "You have not selected  any";
+      // //     }
+
+      var val = document.getElementById('pwd').value;
+      if(val=="")
+      {
+          document.getElementById('pass1').innerHTML="**Password can't be null!!";
+          return false;
+      }
+      else{
+          document.getElementById('pass1').value = "";
+      }
+      if (!val.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}/)) 
+      {
+          document.getElementById('pass1').innerHTML="**Must contain at least one number and one uppercase and lowercase letter and aleast 5 characters'";
+          return false;
+      }
+      else{
+          document.getElementById('pass1').value = "";
+      }
+       
+      // var val = document.getElementById('pwd').value;
+      // var pattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}/;
+      // if (val != pattern) 
+      // {
+      //     document.getElementById('pass1').innerHTML="**Must contain at least one number and one uppercase and lowercase letter and aleast 5 characters";
+      //     return false;
+      // }
+      // else{
+      //     document.getElementById('pass1').value = "";
+      // }
+
+      var ps2=document.getElementById('cpwd').value;
+      if(ps2==""){
+      document.getElementById('pass2').innerHTML="**confrim password can't be null!!";
+      return false;
+      }
+      else{
+      document.getElementById('pass2').innerHTML="";
+      }
+      if(ps2!= document.getElementById('pwd').value){
+      document.getElementById('pass2').innerHTML="**passwords should be matching";
+      return false;
+      }
+      else{
+      document.getElementById('pass2').innerHTML="";
+      }
+
+      // if(val!=ps2){
+      // document.getElementById('pass2').innerHTML="**passwords should be matching";
+      // return false;
+      // }
+      // else{
+      // document.getElementById('pass2').innerHTML="";
+      // }
+}
+
+  </script>
+ <h3>Register</h3>
+<div class="contact-email-area ptb-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <!-- <p class="text-capitalize mb-40">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
+                <form id="contact-form" class="contact-form" onclick="return validation()"  action="{% url 'sellerreg' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="address-wrapper">
+                        <div class="row">    
+                            <div class="col-md-6">
+                                <div class="address-fname">
+                                    <span id="name" class="new" style="color: red;"></span> 
+                                    <input type="text" name="fname" onkeyup='fnameValidation(this)' placeholder="First Name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="address-email">
+                                    <span id="names" class="new" style="color: red;"></span> 
+                                    <input type="text" name="lname" placeholder="Last name" onkeyup='lnameValidation(this)' required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="address-email">
+                                    <span id="addr" class="new" style="color: red;"></span>
+                                    <input type="text" name="addres" placeholder="Address" onkeyup='addressValidation(this)' required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="address-web">
+                                    <span id="brand" class="new" style="color: red;"></span>
+                                    <input type="text" name="brand" placeholder="Brand name" onkeyup='brandValidation(this)' required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="address-web">
+                                    <span id="mail" class="new" style="color: red;"></span>
+                                    <input type="email" name="email" placeholder="Email" onkeyup='emailValidation(this)' required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="address-subject">
+                                    <span id="pho" class="new" style="color: red;"></span>
+                                    <input type="text" name="phone" placeholder="Phone" onkeyup='phoneValidation(this)' required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="address-subject">
+                                    <span id="cit" class="new" style="color: red;"></span>
+                                    <input type="text" name="city" placeholder="City" name="city" onkeyup='cityValidation(this)' required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="address-subject">
+                                    <span id="states" class="new" style="color: red;"></span>
+                                    <input type="text" name="district" placeholder="State" name="district" onkeyup='districtValidation(this)' required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="address-subject">
+                                    <span id="pin" class="new" style="color: red;"></span>
+                                    <input type="text" name="pincode" placeholder="Pincode" pattern="^[6][0-9]{5}$" name="pincode" onkeyup='pincodeValidation(this)' required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="address-subject">
+                                    <span id="pass1" class="new" style="color: red;"></span>
+                                    <input type="password" name="password" placeholder="Password" onkeyup='passwordValidation(this)' pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="address-subject">
+                                    <span id="pass2" class="new" style="color: red;"></span>
+                                    <input type="password"  placeholder="Confrim Password" name="cpassword" onkeyup='cpasswordValidation(this)' required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="form-message ml-15"></p>
+                    <div class="col-xs-12 footer-content mail-content">
+                        <div class="send-email">
+                            <input type="submit" value="Submit" class="submit">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

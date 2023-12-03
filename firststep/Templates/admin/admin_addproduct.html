@@ -1,0 +1,70 @@
+{% extends 'admin/adminbase.html' %}
+
+{% block title%}
+<title>Add product || First-Step</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="card-header">
+    <strong>Add Product</strong> 
+</div>
+<div class="card-body card-block">
+    <form action="" method="post" class="form-horizontal">
+        <div class="row form-group">
+            <div class="col col-md-3">
+                <label for="hf-email" class=" form-control-label">Product name</label>
+            </div>
+            <div class="col-12 col-md-9">
+                <input type="text" id="hf-email" name="hf-email" placeholder="Enter product name..." class="form-control">
+            <!-- <span class="help-block">Please enter sub-category name</span> -->
+        </div>
+        </div>
+        <div class="row form-group">
+            <div class="col col-md-3">
+                <label for="hf-password" class=" form-control-label">Select sub-category</label>
+            </div>
+            <div class="col-12 col-md-9"><select name="select" id="select" class="form-control">
+                <option value="0">Please select</option>
+                <option value="1">Option #1</option>
+            </select>
+            <!-- <span class="help-block">Please enter your password</span> -->
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-4">
+                <label for="inputIsValid" class=" form-control-label">Image</label>
+                <input type="file" placeholder=".col-4" class="form-control" accept=".png, .jpeg, .jpg">
+            </div>
+            <div class="col-4">
+                <label for="inputIsValid" class=" form-control-label">Price</label>
+                <input type="number" placeholder="Enter price" class="form-control"  >
+            </div>
+            <div class="col-4">
+                <label for="inputIsValid" class=" form-control-label">Stock</label>
+                <input type="number" placeholder="Enter stock" class="form-control">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col col-md-3">
+                <label for="text-input" class=" form-control-label">Description</label>
+            </div>
+            <div class="col-12 col-md-9">
+                <input type="text" id="text-input" name="text-input" placeholder="Enter description" class="form-control">
+                <!-- <small class="form-text text-muted">This is a help text</small> -->
+            </div>
+        </div>
+    </form>
+</div>
+<div class="card-footer">
+    <button type="submit" class="btn btn-primary btn-sm">
+        <i class="fa fa-dot-circle-o"></i> Add
+    </button>
+    <!-- <button type="reset" class="btn btn-danger btn-sm">
+        <i class="fa fa-ban"></i> Reset
+    </button> -->
+</div>
+</div>
+
+
+{% endblock %}

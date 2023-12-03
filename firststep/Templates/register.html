@@ -1,0 +1,764 @@
+{% load  static %}
+<!doctype html>
+<html class="no-js" lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Register || First-Step</title>
+    <meta name="description" content="Default Description">
+    <meta name="keywords" content="E-commerce" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/icon/favicon.png' %}">
+    <!-- Google Font css -->
+    <link href="https://fonts.googleapis.com/css?family=Lily+Script+One" rel="stylesheet"> 
+
+    <!-- mobile menu css -->
+    <link rel="stylesheet" href="{% static 'css/meanmenu.min.css'%}">
+    <!-- animate css -->
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <!-- nivo slider css -->
+    <link rel="stylesheet" href="{% static 'css/nivo-slider.css' %}">
+    <!-- owl carousel css -->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <!-- slick css -->
+   <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+    <!-- price slider css -->
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}">
+    <!-- fontawesome css -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+     <!-- fancybox css -->
+    <link rel="stylesheet" href="{% static 'css/jquery.fancybox.css' %}">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- default css  -->
+    <link rel="stylesheet" href="{% static 'css/default.css' %}">
+    <!-- style css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+    <!-- modernizr js -->
+    <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
+    <script src="{% static 'js/reg.js' %}"></script>
+    <script>
+                
+      function validation(){
+        var fname=document.getElementById('f-name').value;
+        var regx = /^[A-Za-z]+$/;
+
+          if(fname==""){
+             document.getElementById('name').innerHTML="**Please enter your firstname";
+             return false;
+          }
+          else{
+             document.getElementById('name').innerHTML="";
+          }
+
+          if((fname.length<=3)||(fname.length>20)){
+             document.getElementById('name').innerHTML="**your firstname must include more characters";
+             return false;
+          }
+          else{
+             document.getElementById('name').innerHTML="";
+          }
+
+          
+          if(!fname.match(/^[a-zA-Z\s, ]+$/)){
+
+             document.getElementById('name').innerHTML="**Only characters are allowed";
+             return false;
+
+          }
+          else{
+             document.getElementById('name').innerHTML="";
+          }
+
+
+          var lname=document.getElementById('l-name').value;
+          if(lname==""){
+             document.getElementById('names').innerHTML="**Please enter your lastname";
+             return false;
+          }
+          else{
+             document.getElementById('names').innerHTML="";
+          }
+
+          if((lname.length<=1)||(lname.length>20)){
+             document.getElementById('names').innerHTML="**your firstname must include more characters";
+             return false;
+          }
+          else{
+             document.getElementById('names').innerHTML="";
+          }
+
+
+          if(!lname.match(/^[A-Za-z\s, ]+$/)){
+
+            document.getElementById('names').innerHTML="**Only characters are allowed";
+            return false;
+
+            }
+            else{
+            document.getElementById('names').innerHTML="";
+            }
+        
+        var detail=document.getElementById('details').value;
+
+        if(detail==""){
+        document.getElementById('addr').innerHTML="**Please enter your address";
+        return false;
+        }
+        else{
+        document.getElementById('addr').innerHTML="";
+        }
+        if((detail.length<=4)||(detail.length>60)){
+
+        document.getElementById('addr').innerHTML="**User length must include more characters";
+        return false;
+
+        }
+        else{
+        document.getElementById('addr').innerHTML="";
+        }
+
+        if (!detail.match(/^[a-zA-Z\s,()'-]*$/)) 
+        {
+            document.getElementById('mail').innerHTML="**enter a Valid Email";
+            return false;
+        }
+        else{
+            document.getElementById('mail').value = "";
+        }
+    
+        var val = document.getElementById('email').value;
+        if(val==""){
+        document.getElementById('mail').innerHTML="**Please enter your address";
+        return false;
+        }
+        else{
+        document.getElementById('mail').innerHTML="";
+        }
+
+        if (!val.match(/([A-z0-9_\-\.]){1,}\@([A-z0-9_\-\.]){1,}\.([A-Za-z]){2,4}$/)) 
+        {
+            document.getElementById('mail').innerHTML="**enter a Valid Email";
+            return false;
+        }
+        else{
+            document.getElementById('mail').value = "";
+        }
+
+
+        var phon=document.getElementById('phoneno').value;
+        if(phon==""){
+
+            document.getElementById('pho').innerHTML="**Please enter your phone number";
+            return false;
+        }
+        else{
+            document.getElementById('pho').innerHTML="";
+        }
+        if(!phon.match(/^[6-9][0-9]{9}$/)){
+
+            document.getElementById('pho').innerHTML="**Please enter a valid phone number";
+            return false;
+        }
+        else{
+            document.getElementById('pho').innerHTML="";
+        }
+        if(phon.length!=10){
+
+            document.getElementById('pho').innerHTML="**Phone number must be 10 digits only";
+            return false;
+        }
+        else{
+            document.getElementById('pho').innerHTML="";
+        }
+
+
+        var cities=document.getElementById('city').value;
+        if(cities==""){
+        document.getElementById('cit').innerHTML="**Please enter your city";
+        return false;
+        }
+        else{
+            document.getElementById('cit').innerHTML="";
+        }
+        if(!cities.match(/^[a-zA-Z\s, ]+$/)){
+        document.getElementById('cit').innerHTML="**enter a valid city";
+        return false;
+        }
+        else{
+        document.getElementById('cit').innerHTML="";
+        }
+        if((cities.length<=4)||(detail.length>60)){
+
+        document.getElementById('cit').innerHTML="**User length must include more characters";
+        return false;
+
+        }
+        else{
+        document.getElementById('cit').innerHTML="";
+        }
+
+        var cities=document.getElementById('district').value;
+        if(cities==""){
+        document.getElementById('states').innerHTML="**Please enter your district";
+        return false;
+        }
+        else{
+            document.getElementById('states').innerHTML="";
+        }
+        if(!cities.match(/^[a-zA-Z\s, ]+$/)){
+        document.getElementById('states').innerHTML="**enter a valid district";
+        return false;
+        }
+        else{
+        document.getElementById('states').innerHTML="";
+        }
+        if((cities.length<=3)||(detail.length>60)){
+
+        document.getElementById('states').innerHTML="**User length must include more characters";
+        return false;
+
+        }
+        else{
+        document.getElementById('states').innerHTML="";
+        }
+
+        var code=document.getElementById('pincode').value;  
+        if (code=="")   
+        {  
+            document.getElementById('pin').innerHTML="**Please enter the pincode";
+            return false;
+        }   
+        else   
+        {  
+            document.getElementById('pin').innerHTML=""; 
+        } 
+       
+        if(!code.match(/^[6][0-9]{5}$/)){
+
+        document.getElementById('pin').innerHTML="**enter a valid pincode";
+        return false;
+
+        }
+        else{
+        document.getElementById('pin').innerHTML="";
+        }
+        if(code.length!=6){
+
+        document.getElementById('pin').innerHTML="**enter a valid pincode";
+        return false;
+        }
+        else{
+        document.getElementById('pin').innerHTML="";
+        }
+
+        // // var fe=document.getElementById('f').Checked;
+        // // var ma=document.getElementById('m').checked;
+        // // if(ma == true) {   
+        // //         document.getElementById("dis").innerHTML ="You have selected male any";   
+        // //         return false;
+        // //     }   
+        // //     else if(fe == true){   
+        // //         document.getElementById("dis").innerHTML = "You have selected female any";  
+        // //         return false; 
+        // //     }  
+        // //     else{
+        // //         document.getElementById("dis").innerHTML = "You have not selected  any";
+        // //     }
+
+        var val = document.getElementById('pwd').value;
+        if(val=="")
+        {
+            document.getElementById('pass1').innerHTML="**Password can't be null!!";
+            return false;
+        }
+        else{
+            document.getElementById('pass1').value = "";
+        }
+        if (!val.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}/)) 
+        {
+            document.getElementById('pass1').innerHTML="**Must contain at least one number and one uppercase and lowercase letter and aleast 5 characters'";
+            return false;
+        }
+        else{
+            document.getElementById('pass1').value = "";
+        }
+         
+        // var val = document.getElementById('pwd').value;
+        // var pattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}/;
+        // if (val != pattern) 
+        // {
+        //     document.getElementById('pass1').innerHTML="**Must contain at least one number and one uppercase and lowercase letter and aleast 5 characters";
+        //     return false;
+        // }
+        // else{
+        //     document.getElementById('pass1').value = "";
+        // }
+
+        var ps2=document.getElementById('cpwd').value;
+        if(ps2==""){
+        document.getElementById('pass2').innerHTML="**confrim password can't be null!!";
+        return false;
+        }
+        else{
+        document.getElementById('pass2').innerHTML="";
+        }
+        if(ps2!= document.getElementById('pwd').value){
+        document.getElementById('pass2').innerHTML="**passwords should be matching";
+        return false;
+        }
+        else{
+        document.getElementById('pass2').innerHTML="";
+        }
+
+        // if(val!=ps2){
+        // document.getElementById('pass2').innerHTML="**passwords should be matching";
+        // return false;
+        // }
+        // else{
+        // document.getElementById('pass2').innerHTML="";
+        // }
+}
+
+    </script>
+    
+</head>
+
+<body>
+    
+    <!-- Wrapper Start -->
+    <div class="wrapper">
+        <!-- Header Area Start -->
+        <header>
+            <!-- Header Top Start -->
+            <div class="header-top">
+                <div class="container">
+                    <div class="row">
+                        <!-- Header Top left Start -->                        
+                        <div class="col-lg-4 col-md-12 d-center">
+                            <div class="header-top-left">
+                                <!-- <img src="img/icon/call.png" alt="">Call Us : +11 222 3333 -->
+                            </div>                        
+                        </div>
+                        <!-- Header Top left End -->
+                        <!-- Search Box Start -->                                        
+                        <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+                            <div class="search-box-view">
+                                <form action="#">
+                                    <input type="text" class="email" placeholder="Search Your Product" name="product">
+                                    <button type="submit" class="submit"></button>
+                                </form>
+                            </div>                                           
+                        </div>
+                        <!-- Search Box End --> 
+                        <!-- Header Top Right Start -->                                       
+                        <div class="col-lg-4 col-md-12">
+                            <div class="header-top-right">
+                                <ul class="header-list-menu f-right">
+                                    <!-- Language Start -->
+                                    
+                                    <!-- Language End -->                                
+                                    <!-- Currency Start -->
+                                    
+                                    <!-- Currency End -->
+                                </ul>
+                                <!-- Header-list-menu End -->
+                            </div>
+                        </div>
+                        <!-- Header Top Right End -->
+                    </div>
+                </div>
+                <!-- Container End -->
+            </div>
+            <!-- Header Top End -->
+            <!-- Header Bottom Start -->
+            <div class="header-bottom header-sticky">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-2 col-sm-5 col-5">
+                            <div class="logo">
+                                <a href="{% url 'home' %}"><img src="{% static 'img/logo/logo.png' %}" alt="logo-image"></a>
+                            </div>
+                        </div>
+                        <!-- Primary Vertical-Menu End -->
+                        <!-- Search Box Start -->
+                        <div class="col-xl-6 col-lg-7 d-none d-lg-block">
+                            <div class="middle-menu pull-right">
+                                <nav>
+                                    <ul class="middle-menu-list">
+                                        <li><a href="{% url 'home' %}">home</a>
+                                            <!-- Home Version Dropdown Start -->
+                                            <!-- <ul class="ht-dropdown home-dropdown">
+                                                <li><a href="index.html">Home Version One</a></li>
+                                                <li><a href="index-2.html">Home Version Two</a></li>
+                                                <li><a href="index-3.html">Home Box Layout</a></li>
+                                            </ul> -->
+                                            <!-- Home Version Dropdown End -->
+                                        </li>
+                                        <li><a href="{% url 'shop' %}">All category</a></li>
+                                        <!-- <li><a href="{% url 'boys' %}">Boys</a> -->
+                                            <!-- Home Version Dropdown Start -->
+                                            <!-- <ul class="ht-dropdown dropdown-style-two">
+                                                <li><a href="{% url 'shop' %}">All Dresses</a>
+                                                </li>
+                                                <li><a href="{% url 'shop' %}">Trouser</a></li>
+                                                <li><a href="{% url 'shop' %}">Shirts</a></li>
+                                            </ul> -->
+                                            <!-- Home Version Dropdown End -->
+                                        <!-- </li> -->
+                                        <li><a href="{% url 'aboutus' %}">ABOUT US</a> </li>
+
+                                        <!-- <li><a href="{% url 'girls' %}">Girls</a> -->
+                                            <!-- Home Version Dropdown Start -->
+                                            <!-- <ul class="ht-dropdown dropdown-style-two">
+                                                <li><a href="{% url 'shop' %}">All dresses</a></li>
+                                                <li><a href="{% url 'shop' %}">Frock</a></li>
+                                                <li><a href="{% url 'shop' %}">Top&Skirt</a></li>
+                                            </ul> -->
+                                            <!-- Home Version Dropdown End -->
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- Search Box End -->
+                        <!-- Cartt Box Start -->
+                        <div class="col-lg-3 col-sm-7 col-7">
+                            <div class="cart-box text-right">
+                                <ul>
+                                    {% if user.is_authenticated %}
+                                    <li>{{user.first_name}} <i class="fa fa-angle-down"></i></i>
+                                        <ul class="ht-dropdown">
+                                            <li><a href="{% url 'account' %}">My profile</a></li>
+                                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                                        </ul>
+                                    </li>
+                                    {% else %}
+                                    <li><a href="#"><i class="fa fa-user"></i></a>
+                                        <ul class="ht-dropdown">
+                                            <li><a href="{% url 'login' %}">Login</a></li>
+                                            <li><a href="{% url 'register' %}">Register</a></li>
+                                        </ul>
+                                    </li>
+                                    {% endif %}                        
+                                    <li><a href="{% url 'wishlist' %}"><i class="fa fa-heart-o"></i></a></li>
+                                    <li><a href="{% url 'cart' %}"><i class="fa fa-shopping-basket"></i></a>
+                                        <ul class="ht-dropdown main-cart-box">
+                                            <li>
+                                                <!-- Cart Box Start -->
+                                                <div class="single-cart-box">
+                                                    <div class="cart-img">
+                                                        <a href="#"><img src="img/menu/1.jpg" alt="cart-image"></a>
+                                                    </div>
+                                                    <div class="cart-content">
+                                                        <h6><a href="product.html">Products Name</a></h6>
+                                                        <span>1 × $399.00</span>
+                                                    </div>
+                                                    <a class="del-icone" href="#"><i class="fa fa-window-close-o"></i></a>
+                                                </div>
+                                                <!-- Cart Box End -->
+                                                <!-- Cart Box Start -->
+                                                <div class="single-cart-box">
+                                                    <div class="cart-img">
+                                                        <a href="#"><img src="img/menu/2.jpg" alt="cart-image"></a>
+                                                    </div>
+                                                    <div class="cart-content">
+                                                        <h6><a href="product.html">Products Name</a></h6>
+                                                        <span>2 × $299.00</span>
+                                                    </div>
+                                                    <a class="del-icone" href="#"><i class="fa fa-window-close-o"></i></a>
+                                                </div>
+                                                <!-- Cart Box End -->
+                                                <!-- Cart Footer Inner Start -->
+                                                <div class="cart-footer fix">
+                                                    <h5>total :<span class="f-right">$698.00</span></h5>
+                                                    <div class="cart-actions">
+                                                        <a class="checkout" href="{% url 'checkout' %}">Checkout</a>
+                                                    </div>
+                                                </div>
+                                                <!-- Cart Footer Inner End -->
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Cartt Box End -->
+                        
+                        <!-- Mobile Menu  End -->                        
+                    </div>
+                    <!-- Row End -->
+                </div>
+                <!-- Container End -->
+            </div>
+            <!-- Header Bottom End -->
+        </header>
+        <!-- Header Area End -->    
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-area ptb-60 ptb-sm-30">
+            <div class="container">
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li class="active"><a href="{% url 'register' %}">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Breadcrumb End -->
+        <!-- Register Account Start -->
+        <div class="register-account pb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        {% include 'alert.html' %}
+                        <div class="register-title">
+                            <h3 class="mb-10">REGISTER ACCOUNT</h3>
+                            <p class="mb-10">If you already have an account with us, please login at the login page.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Row End -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <form class="form-horizontal" onclick="return validation()"  action="{% url 'register' %}" id="input-form"  method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <fieldset>
+                                <legend>Your Personal Details</legend>
+                                <div class="form-group">
+                                    <label class="control-label" for="f-name"><span class="require" aria-required="">*</span>First Name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="f-name" placeholder="First Name" name="fname" onkeyup='fnameValidation(this)' required>
+                                        <span id="name" class="new" style="color: red;"></span> 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="l-name"><span class="require">*</span>Last Name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="l-name" placeholder="Last Name" name="lname" onkeyup='lnameValidation(this)' required>
+                                        <span id="names" class="new" style="color: red;"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="number"><span class="require">*</span>Address</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" size="50" row="3" placeholder="Enter your address here..." class="form-control" id="details" name="addres" onkeyup='addressValidation(this)' required>  
+                                        <span id="addr" class="new" style="color: red;"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="email"><span class="require">*</span>Enter your email address</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="email" placeholder="Enter your email address here..." name="email"  onkeyup='emailValidation(this)' required>
+                                        <span id="mail" class="new" style="color: red;"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="number"><span class="require">*</span>Telephone</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="phoneno" placeholder="Enter phone number.." name="phone" onkeyup='phoneValidation(this)' required> 
+                                        <span id="pho" class="new" style="color: red;"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="number"><span class="require">*</span>City</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="city" placeholder="City" name="city" onkeyup='cityValidation(this)' required>
+                                        <span id="cit" class="new" style="color: red;"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="number"><span class="require">*</span>State</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="district" placeholder="State" name="district" onkeyup='districtValidation(this)' required>
+                                        <span id="states" class="new" style="color: red;"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="number"><span class="require">*</span>Pincode</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="pincode" placeholder="Pincode" pattern="^[6][0-9]{5}$" name="pincode" onkeyup='pincodeValidation(this)' required>
+                                        <span id="pin" class="new" style="color: red;"></span>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Your Password</legend>
+                                <div class="form-group">
+                                    <label class="control-label" for="pwd"><span class="require">*</span>Password:</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="pwd" placeholder="Password" name="password" onkeyup='passwordValidation(this)' pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" required>
+                                        <span id="pass1" class="new" style="color: red;"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="pwd-confirm"><span class="require">*</span>Confirm Password</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="cpwd" placeholder="Confirm password" name="cpassword" onkeyup='cpasswordValidation(this)' required>
+                                        <span id="pass2" class="new" style="color: red;"></span>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="newsletter-input">
+                                <legend>Do yo want to register as Customer/Seller?</legend>
+                                <div class="form-group">
+                                    <!-- <label class="control-label">Subscribe</label> -->
+                                    <div class="col-sm-10">
+                                        <label class="radio-inline">
+                                            <select class="select"  name="roles" path="roles" id="roles" >
+                                                <option >---------</option>
+                                                  <option value="is_staff">Seller</option>
+                                                  <option value="is_user">Customer</option>
+                                             </select>
+                         
+                                        <!-- <input type="radio" id="roles" name="roles" value="is_user" > Customer</label>
+                                        <label class="radio-inline">
+                                        <input type="radio" id="roles" name="roles" value="is_staff" checked> Seller</label> -->
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="buttons newsletter-input">
+                                <div class="pull-right">By continuing, you agree to First-step's Terms of Use and Privacy Policy.
+                                    <!-- <input type="checkbox" name="agree" value="1"> &nbsp;  -->
+                                    <input type="submit" value="Submit" class="newsletter-btn"  >
+                                </div>
+                            </div>
+                        </form>
+                        <!-- <div>
+                            {% for message in messages %}
+                            <h3 style="font-size:12px;margin-top:-5px;" class="text-danger font-weight-bold">{{message}}</h3>
+                            {% endfor %}
+                        </div> -->
+                    </div>
+                </div>
+                <!-- Row End -->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Register Account End -->
+        <!-- Brand Logo Start -->
+       
+                <!-- Brand Banner End -->                
+            </div>
+        </div>
+        <!-- Brand Logo End -->
+
+        <footer class="off-white-bg">
+            <!-- Footer Top Start -->
+            <div class="footer-top pt-50 pb-60">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 mr-auto ml-auto">
+                                                       
+                        </div>
+                    </div>                    
+                    <div class="row">
+                        <!-- Single Footer Start -->
+                        <div class="col-lg-4  col-md-7 col-sm-6">
+                            <div class="single-footer">
+                                <h3>Contact us</h3>
+                                <div class="footer-content">
+                                    <div class="loc-address">
+                                        <span><i class="fa fa-map-marker"></i>kottayam</span>
+                                        <span><i class="fa fa-envelope-o"></i>Mail Us : firststep@gmail.com</span>
+                                        <span><i class="fa fa-phone"></i>Phone: + 91 254 254565 54</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Footer Start -->
+                        <!-- Single Footer Start -->
+                        <div class="col-lg-2  col-md-5 col-sm-6 footer-full">
+                            
+                        </div>
+                        <!-- Single Footer Start -->
+                        <!-- Single Footer Start -->
+                        <div class="col-lg-2  col-md-4 col-md-4 col-sm-6 footer-full">
+                            
+                        </div>
+                        <!-- Single Footer Start -->
+                        <!-- Single Footer Start -->
+                        <div class="col-lg-2 col-md-4 col-sm-6 footer-full">
+                            
+                        </div>
+                        <!-- Single Footer Start -->
+                        <!-- Single Footer Start -->
+                        <div class="col-lg-2 col-md-4 col-sm-6 footer-full">
+                            <div class="single-footer">
+                                <h3 class="footer-title">Let Us Help You</h3>
+                                <div class="footer-content">
+                                    <ul class="footer-list">
+                                        <li><a href="#">Your Orders</a></li>
+                                        <li><a href="#">Shipping</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Footer Start -->
+                    </div>
+                    <!-- Row End -->
+                </div>
+                <!-- Container End -->
+            </div>
+            <!-- Footer Top End -->
+            <!-- Footer Bottom Start -->
+            <div class="footer-bottom off-white-bg2">
+                <div class="container">
+                    <div class="footer-bottom-content">
+                        <p class="copy-right-text">Copyright © <a  href="#">Varsha</a> All Rights Reserved.</p>
+                        
+                    </div>
+                </div>
+                <!-- Container End -->
+            </div>
+            <!-- Footer Bottom End -->
+        </footer>
+        <!-- Footer End -->
+    </div>
+    <!-- Wrapper End -->
+    <!-- jquery 3.12.4 -->
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <!-- mobile menu js  -->
+    <script src="{% static 'js/jquery.meanmenu.min.js' %}"></script>
+    <!-- scroll-up js -->
+    <script src="{% static 'js/jquery.scrollUp.js' %}"></script>
+    <!-- owl-carousel js -->
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <!-- slick js -->
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <!-- wow js -->
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <!-- price slider js -->
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+    <!-- nivo slider js -->
+    <script src="{% static 'js/jquery.nivo.slider.js' %}"></script>
+    <!-- fancybox js -->
+    <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+    <!-- bootstrap -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- popper -->
+    <script src="{% static 'js/popper.js' %}"></script>
+    <!-- plugins -->
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <!-- main js -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/mainlogin.js' %}"></script> 
+    <style>
+        .new{
+            color :red ;
+        }
+
+        #phn{
+            color : red;
+        }
+    </style>
+</body>
+
+</html>

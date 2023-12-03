@@ -1,0 +1,47 @@
+{% extends 'admin/adminbase.html' %}
+
+{% block title%}
+<title>Category || First-Step</title>
+{% endblock %}
+
+
+{% block alert %}
+
+{% include 'admin/alerts.html' %}
+
+{% endblock %} 
+
+
+
+{% block content %}
+
+
+<div class="card-header">
+    <strong class="card-title">payment details</strong>
+</div>
+<div class="card-body">
+    <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Seller name</th>
+                <th>Amount</th>
+                <th>For month</th>
+                <th>Received on</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for k in data %}
+            <tr>
+                <td>{{k.user.first_name}}</td>
+                 <td>{{k.amount}}</td>
+                 <td>{{ k.created_at|date:"F" }}</td>
+                 <td>{{k.created_at}}</td>
+                <!-- <td><a href="{% url 'admin_categoryedit' k.id %}" ><i class="ti-pencil-alt" style="color: rgb(13, 143, 125);"></i></a></td>
+                <td><a href="{% url 'admin_categorydelete' k.id %}"><i class="ti-trash" style="color: red;"></i></a></td> -->
+            </tr>
+            {% endfor %}
+         </tbody>
+    </table>
+</div>
+
+{% endblock %}

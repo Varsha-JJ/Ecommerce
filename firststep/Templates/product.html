@@ -1,0 +1,715 @@
+{% load  static %}
+<!doctype html>
+<html class="no-js" lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Product || First-step</title>
+    <meta name="description" content="Default Description">
+    <meta name="keywords" content="E-commerce" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/icon/favicon.png' %}">
+    <!-- Google Font css -->
+    <link href="https://fonts.googleapis.com/css?family=Lily+Script+One" rel="stylesheet"> 
+
+    <!-- mobile menu css -->
+    <link rel="stylesheet" href="{% static 'css/meanmenu.min.css' %}">
+    <!-- animate css -->
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <!-- nivo slider css -->
+    <link rel="stylesheet" href="{% static 'css/nivo-slider.css' %}">
+    <!-- owl carousel css -->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <!-- slick css -->
+   <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+    <!-- price slider css -->
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}">
+    <!-- fontawesome css -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+     <!-- fancybox css -->
+    <link rel="stylesheet" href="{% static 'css/jquery.fancybox.css' %}">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- default css  -->
+    <link rel="stylesheet" href="{% static 'css/default.css' %}">
+    <!-- style css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}"> 
+    <!-- rating style -->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+    <!-- modernizr js -->
+    <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>  
+    <script src="{% static 'js/vendor/samp.js' %}"></script>      
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        const form = document.getElementById('add-to-cart-form');
+        const sizeSelect = document.getElementById('size-select');
+        const addToCartBtn = document.getElementById('add-to-cart-btn');
+    
+        // Disable the "add to cart" button initially
+        addToCartBtn.disabled = true;
+    
+        // Listen for changes to the size select element
+        sizeSelect.addEventListener('change', () => {
+            // Enable the "add to cart" button if a size is selected
+            if (sizeSelect.value !== '') {
+                addToCartBtn.disabled = false;
+            } else {
+                addToCartBtn.disabled = true;
+            }
+        });
+    
+        // Listen for form submission
+        form.addEventListener('submit', (event) => {
+            // If no size is selected, prevent the form from submitting
+            if (sizeSelect.value === '') {
+                event.preventDefault();
+                alert('Please select a size before adding to cart.');
+            }
+        });
+    </script>
+     
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Wrapper Start -->
+    <div class="wrapper">
+        <!-- Header Area Start -->
+        <header>
+            <!-- Header Top Start -->
+            <div class="header-top">
+                <div class="container">
+                    <div class="row">
+                        <!-- Header Top left Start -->                        
+                        <div class="col-lg-4 col-md-12 d-center">
+                            <div class="header-top-left">
+                                <!-- <img src="img/icon/call.png" alt="">Call Us : +11 222 3333 -->
+                            </div>                        
+                        </div>
+                        <!-- Header Top left End -->
+                        <!-- Search Box Start -->                                        
+                        <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+                            <div class="search-box-view">
+                                <form action="{% url 'searchbar' %}" method="GET">
+                                    {% csrf_token %}
+                                    <input type="text" class="email" placeholder="Search Your Product" name="query">
+                                    <button type="submit" class="submit"></button>
+                                </form>
+                            </div>                                           
+                        </div>
+                        <!-- Search Box End --> 
+                        <!-- Header Top Right Start -->                                       
+                        <div class="col-lg-4 col-md-12">
+                            <div class="header-top-right">
+                                <ul class="header-list-menu f-right">
+                                    <!-- Language Start -->
+                                    
+                                    <!-- Language End -->                                
+                                    <!-- Currency Start -->
+                                    
+                                    <!-- Currency End -->
+                                </ul>
+                                <!-- Header-list-menu End -->
+                            </div>
+                        </div>
+                        <!-- Header Top Right End -->
+                    </div>
+                </div>
+                <!-- Container End -->
+            </div>
+            <!-- Header Top End -->
+            <!-- Header Bottom Start -->
+            <div class="header-bottom header-sticky">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-2 col-sm-5 col-5">
+                            <div class="logo">
+                                <a href="{% url 'home' %}"><img src="{% static 'img/logo/logo.png' %}" alt="logo-image"></a>
+                            </div>
+                        </div>
+                        <!-- Primary Vertical-Menu End -->
+                        <!-- Search Box Start -->
+                        <div class="col-xl-6 col-lg-7 d-none d-lg-block">
+                            <div class="middle-menu pull-right">
+                                <nav>
+                                    <ul class="middle-menu-list">
+                                        <li><a href="{% url 'home' %}">home</a>
+                                            <!-- Home Version Dropdown Start -->
+                                            
+                                            <!-- Home Version Dropdown End -->
+                                        </li>    
+                                        <li><a href="{% url 'shop' %}">All category</a></li>                                    
+                                        <li><a href="{% url 'boys' %}">Boys</a>
+                                            <!-- Home Version Dropdown Start -->
+                                            <!-- <ul class="ht-dropdown dropdown-style-two">
+                                                <li><a href="{% url 'shop' %}">All Dresses</a>
+                                                </li>
+                                                <li><a href="{% url 'shop' %}">Trouser</a></li>
+                                                <li><a href="{% url 'shop' %}">Shirts</a></li>
+                                            </ul> -->
+                                            <!-- Home Version Dropdown End -->
+                                        </li>
+                                            <!-- Home Version Dropdown End -->
+                                        </li>                                       
+                                        <li><a href="{% url 'girls' %}">Girls</a>
+                                            <!-- Home Version Dropdown Start -->
+                                            <!-- <ul class="ht-dropdown dropdown-style-two">
+                                                <li><a href="{% url 'login' %}">All dresses</a></li>
+                                                <li><a href="{% url 'shop' %}">Frock</a></li>
+                                                <li><a href="{% url 'shop' %}">Top&Skirt</a></li>
+                                            </ul> -->
+                                            <!-- Home Version Dropdown End -->
+                                        </li>
+                                        <!-- <li><a href="contact.html">contact us</a></li>                                         -->
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- Search Box End -->
+                        <!-- Cartt Box Start -->
+                        <div class="col-lg-3 col-sm-7 col-7">
+                            <div class="cart-box text-right">
+                                <ul>
+                                    {% if user.is_authenticated %}
+                                    <li>{{user.first_name}} <i class="fa fa-angle-down"></i></i>
+                                        <ul class="ht-dropdown">
+                                            <li><a href="{% url 'account' %}">My profile</a></li>
+                                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                                        </ul>
+                                    </li>
+                                    {% else %}
+                                    <li><a href="#"><i class="fa fa-user"></i></a>
+                                        <ul class="ht-dropdown">
+                                            <li><a href="{% url 'login' %}">Login</a></li>
+                                            <li><a href="{% url 'register' %}">Register</a></li>
+                                        </ul>
+                                    </li>
+                                    {% endif %}                                   
+                                    <li><a href="{% url 'view_wishlist' %}"><i class="fa fa-heart-o"></i><span class="cart-counter">{{w_count}}</span></a></li>
+                                    <li><a href="{% url 'cart' %}"><i class="fa fa-shopping-basket"></i><span class="cart-counter">{{count}}</span></a>
+                                        <!-- <ul class="ht-dropdown main-cart-box">
+                                            <li> -->
+                                                <!-- Cart Box Start -->
+                                                <!-- <div class="single-cart-box">
+                                                    <div class="cart-img">
+                                                        <a href="#"><img src="{% static 'img/menu/1.jpg' %}" alt="cart-image"></a>
+                                                    </div>
+                                                    <div class="cart-content">
+                                                        <h6><a href="product.html">Products Name</a></h6>
+                                                        <span>1 × $399.00</span>
+                                                    </div>
+                                                    <a class="del-icone" href="#"><i class="fa fa-window-close-o"></i></a>
+                                                </div> -->
+                                                <!-- Cart Box End -->
+                                                <!-- Cart Box Start -->
+                                                <!-- <div class="single-cart-box">
+                                                    <div class="cart-img">
+                                                        <a href="#"><img src="{% static 'img/menu/2.jpg' %}" alt="cart-image"></a>
+                                                    </div>
+                                                    <div class="cart-content">
+                                                        <h6><a href="product.html">Products Name</a></h6>
+                                                        <span>2 × $299.00</span>
+                                                    </div>
+                                                    <a class="del-icone" href="#"><i class="fa fa-window-close-o"></i></a>
+                                                </div> -->
+                                                <!-- Cart Box End -->
+                                                <!-- Cart Footer Inner Start -->
+                                                <!-- <div class="cart-footer fix">
+                                                    <h5>total :<span class="f-right">$698.00</span></h5>
+                                                    <div class="cart-actions">
+                                                        <a class="checkout" href="{% url 'checkout' %}">Checkout</a>
+                                                    </div>
+                                                </div> -->
+                                                <!-- Cart Footer Inner End -->
+                                            <!-- </li>
+                                        </ul> -->
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Cartt Box End -->
+                        <!-- Mobile Menu  End -->                        
+                    </div>
+                    <!-- Row End -->
+                </div>
+                <!-- Container End -->
+            </div>
+            <!-- Header Bottom End -->
+        </header>
+        <!-- Header Area End --> 
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-area ptb-60 ptb-sm-30">
+            <div class="container">
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'shop' %}">All category</a></li>
+                        <li class="active">{{product.name}}</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Breadcrumb End -->
+        <!-- Product Thumbnail Start -->
+        {% include 'alert.html' %}
+        <div class="main-product-thumbnail pb-60">
+            <div class="container">
+                <div class="row">
+                    <!-- Main Thumbnail Image Start -->
+                    <div class="col-lg-5">
+                        <!-- Thumbnail Large Image start -->
+                        <div class="tab-content">
+                            <div id="thumb1" class="tab-pane active">
+                                <a ><img src="{{product.products_image.url}}" alt="product-view"></a>
+                            </div>
+                        </div>
+                        <!-- Thumbnail Large Image End -->
+
+                        <!-- Thumbnail Image End -->
+                        <!-- Thumbnail image end -->
+                    </div>
+                    <!-- Main Thumbnail Image End -->
+
+                    <!-- Thumbnail Description Start -->
+                    <div class="col-lg-7">
+                        <div class="thubnail-desc fix">
+                            <h3 class="product-header">{{product.name}}</h3>
+                            <div class="rating-summary fix mtb-10">
+                                <!-- <span>{{ context.averageReview }}</span> -->
+                                        <div class="rating-stars">
+                                        <i class="fa fa-star{% if context.averageReview < 0.5 %}-o{% elif context.averageReview >= 0.5 and context.averageReview < 1 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                        <i class="fa fa-star{% if context.averageReview < 1.5 %}-o{% elif context.averageReview >= 1.5 and context.averageReview < 2 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                        <i class="fa fa-star{% if context.averageReview < 2.5 %}-o{% elif context.averageReview >= 2.5 and context.averageReview < 3 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                        <i class="fa fa-star{% if context.averageReview < 3.5 %}-o{% elif context.averageReview >= 3.5 and context.averageReview < 4 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                        <i class="fa fa-star{% if context.averageReview < 4.5 %}-o{% elif context.averageReview >= 4.5 and context.averageReview < 5 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                        </div>
+                                <div class="rating-feedback f-left">
+                                </div>
+                            </div>
+                            <div class="pro-price mb-10">
+                                <p><span class="price">Rs.{{product.price}}</span></p>
+                            </div>
+                            <div class="pro-ref mb-15">
+                                <p><span class="in-stock">IN STOCK -</span>
+                                    <span class="sku">{{ product.stock }} Available</span>
+                                </p>
+                            </div>
+                            <div class="pro-ref mb-15">
+                                <!-- <p><span class="in-stock">SIZE</span></p> -->
+                                <div class="col-sm-3">
+                                    <div class="box-quantity">
+                                        <form id="add-to-cart-form" action="{% url 'addcart' product.id %}" method="POST" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            <a href="#">SIZE</a> 
+                                            <select class="select"  name="size" id="size-select"  required>
+                                                <!-- <option selected disabled>Select Size</option> -->
+                                                  {% for s in size %}
+                                                  <option value="{{s.id}}">{{s.code}}</option>
+                                                  {% endfor %}
+                                             </select><br><br>
+                                             <div class="box-quantity">
+                                                {% if product.stock > 0 %}
+                                               <button class="add-cart" id="add-to-cart-btn" >add to cart</button> 
+                                                <!-- <input type="submit" value="add to cart"  class="add-cart"> -->
+                                                {% else %}
+                                                <h5 style="color:red;">Out of Stock</h5>
+                                                {% endif %}
+                                             </div>
+                                        </form>
+                                    </div>
+                                    <!-- <div class="col-sm-12">
+                                        <ul class="blog-pagination pt-20">
+                                            {% for s in size %}
+                                            <li><a href="#">{{s.code}}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                        End of .blog-pagination -->
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                            <!-- <div class="box-quantity">
+                                {% if product.stock > 0 %}
+                                <form action="#">
+                                     <input class="number" id="numeric" type="number" min="1" value="1"> -->
+                                    <!-- <a class="add-cart" id="add-to-cart-btn"  href="{% url 'addcart' product.id %}" >add to cart</a>
+                                </form>
+                                {% else %}
+                                <h5 style="color:red;">Out of Stock</h5>
+                                {% endif %}
+                            </div> --> 
+                            <div class="product-link">
+                                <ul class="list-inline">
+                                    <li><a href="{% url 'add_wishlist' product.id  %}">Add to Wish List</a></li>
+                                </ul>
+                            </div>
+                            <br>
+                            <p class="in-stock">PRODUCT DESCRIPTION</p>
+                            <p class="ptb-20">{{product.description }}</p>
+                        </div>
+                    </div>
+                    <!-- Thumbnail Description End -->
+                </div>
+                <!-- Row End -->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Product Thumbnail End -->
+        <!-- Product Thumbnail Description Start -->
+        
+        <!-- Product Thumbnail Description End -->
+        <!-- Realted Product Start -->
+        
+        <!-- Realted Product End -->
+        <!-- Upsell Product Start -->
+        
+                    <!-- Upsell Product Activation End -->
+                <!-- </div>
+            </div>
+        </div> -->
+        <!-- Upsell Product End -->
+        <!-- Brand Logo Start -->
+        
+                <!-- Brand Banner End -->                
+            <!-- </div>
+        </div> -->
+        <!-- Brand Logo End -->
+         <!-- Product Thumbnail Description Start -->
+         <div class="thumnail-desc pb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ul class="main-thumb-desc nav">
+                            <!-- <li><a class="active" data-toggle="tab" href="#dtail">Details</a></li> -->
+                            <li><a data-toggle="tab" href="#review">Ratings & Reviews</a></li>
+                        </ul>
+                        <!-- Product Thumbnail Tab Content Start -->
+                        <div class="tab-content thumb-content border-default">
+                            <!-- <div id="dtail" class="tab-pane in active">
+                                <p>Everything you need for a trip to the gym will fit inside this surprisingly spacious Products Name Here. Stock it with a water bottle, change of clothes, pair of shoes, and even a few beauty products. Fits inside a locker and zips shut for security.</p>
+                                <ul class="tab-list-item">
+                                    <li> Slip pocket on front.</li>
+                                    <li> Contrast piping.</li>
+                                    <li> Durable nylon construction.</li>
+                                </ul>
+                            </div> -->
+                            <div id="review" class="tab-pane">
+                                <!-- Reviews Start -->
+                                <div class="review">
+                                    <div class="group-title">
+                                        <h2>Average customer review</h2>
+                                        <span>{{ context.averageReview }}</span>
+                                        <div class="rating-stars">
+                                        <i class="fa fa-star{% if context.averageReview < 0.5 %}-o{% elif context.averageReview >= 0.5 and context.averageReview < 1 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                        <i class="fa fa-star{% if context.averageReview < 1.5 %}-o{% elif context.averageReview >= 1.5 and context.averageReview < 2 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                        <i class="fa fa-star{% if context.averageReview < 2.5 %}-o{% elif context.averageReview >= 2.5 and context.averageReview < 3 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                        <i class="fa fa-star{% if context.averageReview < 3.5 %}-o{% elif context.averageReview >= 3.5 and context.averageReview < 4 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                        <i class="fa fa-star{% if context.averageReview < 4.5 %}-o{% elif context.averageReview >= 4.5 and context.averageReview < 5 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                    <h4 class="review-mini-title">Total Review</h4>
+                                    <ul class="review-list">
+                                        <!-- Single Review List Start -->
+                                        {% for review in review %}
+                                        <li>
+                                            <p class="date">{{review.user.first_name}} - <span>{{review.created_at}}</span></p>
+                                            <i class="fa fa-star{% if review.rating == 0.5 %}-half-o{% elif review.rating < 1 %}-o {% endif %}" aria-hidden="true"></i>
+                                            <i class="fa fa-star{% if review.rating == 1.5 %}-half-o{% elif review.rating < 2 %}-o {% endif %}" aria-hidden="true"></i>
+                                            <i class="fa fa-star{% if review.rating == 2.5 %}-half-o{% elif review.rating < 3 %}-o {% endif %}" aria-hidden="true"></i>
+                                            <i class="fa fa-star{% if review.rating == 3.5 %}-half-o{% elif review.rating < 4 %}-o {% endif %}" aria-hidden="true"></i>
+                                            <i class="fa fa-star{% if review.rating == 4.5 %}-half-o{% elif review.rating < 5 %}-o {% endif %}" aria-hidden="true"></i>
+                                            <!-- <label>Jantrik</label> -->
+                                        </li>
+                                        <div class="review-body">
+                                            <p>{{review.review}}</p>
+                                        </div>
+                                        {% endfor %}
+                                        <!-- Single Review List End -->
+                                        <!-- Single Review List Start -->
+                                        <!-- <li>
+                                            <span>price</span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <label>Review by <a href="https://themeforest.net/user/Jantrik">Jantrik</a></label>
+                                        </li> -->
+                                        <!-- Single Review List End -->
+                                        <!-- Single Review List Start -->
+                                        <!-- <li>
+                                            <span>value</span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <label>Posted on 7/20/18</label>
+                                        </li> -->
+                                        <!-- Single Review List End -->
+                                    </ul>
+                                </div>
+                                <!-- Reviews End -->
+                                <!-- Reviews Start -->
+                                <div class="review border-default universal-padding mt-30">
+                                    <!-- <h2 class="review-title mb-30">You're reviewing: <br><span>Go-Get'r Pushup Grips</span></h2> -->
+                                    <form action="{% url 'reviewss' product.id %}" method="POST">
+                                        {% csrf_token %}
+                                    <p class="review-mini-title">your rating</p>
+                                    <div class="input-rating">
+                                        <table>
+                                        <th><span>Your Rating: </span></th>
+
+                                           <th> <div class="rate">
+                                                <input type="radio" name="rating" id="rating10" value="5" required /><label for="rating10" title="5"></label>
+                                                <input type="radio" name="rating" id="rating9" value="4.5" required /><label for="rating9" title="4.5" class="half"></label>
+                                                <input type="radio" name="rating" id="rating8" value="4" required /><label for="rating8" title="4"></label>
+                                                <input type="radio" name="rating" id="rating7" value="3.5" required /><label for="rating7" title="3.5" class="half"></label>
+                                                <input type="radio" name="rating" id="rating6" value="3" required /><label for="rating6" title="3"></label>
+                                                <input type="radio" name="rating" id="rating5" value="2.5" required /><label for="rating5" title="2.5" class="half"></label>
+                                                <input type="radio" name="rating" id="rating4" value="2" required /><label for="rating4" title="2"></label>
+                                                <input type="radio" name="rating" id="rating3" value="1.5" required /><label for="rating3" title="1.5" class="half"></label>
+                                                <input type="radio" name="rating" id="rating2" value="1" required /><label for="rating2" title="1"></label>
+                                                <input type="radio" name="rating" id="rating1" value="0.5" required /><label for="rating1" title="0.5" class="half"></label>
+                                            </div></th></table>
+                                    <!-- Reviews Field Start -->
+                                    <div class="riview-field mt-40">
+                                        <!-- <form autocomplete="off" action="#"> -->
+                                            <!-- <div class="form-group">
+                                                <label class="req" for="sure-name">Nickname</label>
+                                                <input type="text" class="form-control" id="sure-name" required="required">
+                                            </div> -->
+                                            <div class="form-group">
+                                                <label class="req" for="subject">Summary</label>
+                                                <input type="text" class="form-control" id="subject" name="subject" required="required">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="req" for="comments">Review</label>
+                                                <textarea class="form-control" rows="5" id="comments" name="review" required="required"></textarea>
+                                            </div>
+                                            {% if user.is_authenticated %}
+													{% if orderproduct %}
+                                                    <button type="submit" class="btn-submit">Submit Review</button>
+                                                    {% else %}
+													<p>You must purchase this product to post a review.</p>
+										    {% endif %}
+												{% else %}
+												<p>You must be logged in to post a review. <span><a href="{% url 'login' %}">Login now</a></span></p>
+												{% endif %}
+                                        </form>
+                                    </div>
+                                </form>
+                                    <!-- Reviews Field Start -->
+                                </div>
+                                <script>
+                                    setTimeout(function(){
+                                      if ($('#msg').length > 0){
+                                        $('#msg').remove();
+                                        }
+                                      },2900)
+
+                                </script>
+                                <!-- Reviews End -->
+                            </div>
+                        </div>
+                        <!-- Product Thumbnail Tab Content End -->
+                    </div>
+                </div>
+                <!-- Row End -->
+            </div>
+            <!-- Container End -->
+        </div>
+<br><br>
+<!-- Realted Product Start -->
+<div class="related-product pb-30">
+    <div class="container">
+        <div class="related-box">
+            <div class="group-title">
+                <h2>Recommended products</h2>
+            </div>
+            <!-- Realted Product Activation Start -->                    
+            <div class="new-upsell-pro owl-carousel">
+                <!-- Single Product Start --> 
+                {% for pro in recomment %}                    
+                <div class="single-product">
+                    <!-- Product Image Start -->
+                    <div class="pro-img">
+                        <a href="{% url 'product_detail' pro.id %}">
+                            <img class="primary-img" src="{{ pro.products_image.url }}" alt="single-product">
+                            <!-- <img class="secondary-img" src="img/products/2.jpg" alt="single-product"> -->
+                        </a>
+                    </div>
+                    <!-- Product Image End -->
+                    <!-- Product Content Start -->
+                    <div class="pro-content">
+                        <!-- <span>{{ pro.averageReview }}</span> -->
+                                        <div class="rating-stars">
+                                        <i class="fa fa-star{% if pro.averageReview < 0.5 %}-o{% elif pro.averageReview >= 0.5 and pro.averageReview < 1 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                        <i class="fa fa-star{% if pro.averageReview < 1.5 %}-o{% elif pro.averageReview >= 1.5 and pro.averageReview < 2 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                        <i class="fa fa-star{% if pro.averageReview < 2.5 %}-o{% elif pro.averageReview >= 2.5 and pro.averageReview < 3 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                        <i class="fa fa-star{% if pro.averageReview < 3.5 %}-o{% elif pro.averageReview >= 3.5 and pro.averageReview < 4 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                        <i class="fa fa-star{% if pro.averageReview < 4.5 %}-o{% elif pro.averageReview >= 4.5 and pro.averageReview < 5 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                        </div>                                
+                        <h4><a href="{% url 'product_detail' pro.id %}">{{ pro.name }}</a></h4>
+                        <p><span class="price">Rs. {{ pro.price }}</span></p>
+                        <div class="pro-actions">
+                            <div class="actions-secondary">
+                                <a href="{% url 'add_wishlist' pro.id %}" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
+                                <!-- <a class="add-cart" href="cart.html" data-toggle="tooltip" title="Add to Cart">Add To Cart</a> -->
+                                <!-- <a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Content End -->
+                    <!-- <span class="sticker-new">-32%</span> -->
+                </div>
+                {% endfor %}
+                <!-- Single Product End -->  
+            </div>
+            <!-- Realted Product Activation End -->
+        </div>
+    </div>
+</div>
+<!-- Realted Product End -->
+
+       
+
+        <!-- <h3>Highly Rated Products</h3>
+        <div class="row">
+          {% for pro in recomment %}
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <img src="{{ pro.products_image.url }}" alt="{{ pro.name }}" class="card-img-top" height="225">
+                <div class="card-body">
+                  <h4 class="card-title">{{ pro.name }}</h4>
+                  <p class="card-text">{{ pro.description }}</p>
+                  <p class="card-text">Price: ${{ pro.price }}</p>
+                  <p class="card-text">Average Rating: {{ pro.avg_rating }}</p>
+                  <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div> -->
+
+    <!-- </div> -->
+            
+
+        <!-- End Recommended products section -->
+
+        <footer class="off-white-bg">
+            <!-- Footer Top Start -->
+            <div class="footer-top pt-50 pb-60">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 mr-auto ml-auto">
+                                                       
+                        </div>
+                    </div>                    
+                    <div class="row">
+                        <!-- Single Footer Start -->
+                        <div class="col-lg-4  col-md-7 col-sm-6">
+                            <div class="single-footer">
+                                <h3>Contact us</h3>
+                                <div class="footer-content">
+                                    <div class="loc-address">
+                                        <span><i class="fa fa-map-marker"></i>kottayam</span>
+                                        <span><i class="fa fa-envelope-o"></i>Mail Us : firststep@gmail.com</span>
+                                        <span><i class="fa fa-phone"></i>Phone: + 91 254 254565 54</span>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Footer Start -->
+                        <!-- Single Footer Start -->
+                        <div class="col-lg-2  col-md-5 col-sm-6 footer-full">
+                            
+                        </div>
+                        <!-- Single Footer Start -->
+                        <!-- Single Footer Start -->
+                        <div class="col-lg-2  col-md-4 col-md-4 col-sm-6 footer-full">
+                            
+                        </div>
+                        <!-- Single Footer Start -->
+                        <!-- Single Footer Start -->
+                        <div class="col-lg-2 col-md-4 col-sm-6 footer-full">
+                            
+                        </div>
+                        <!-- Single Footer Start -->
+                        <!-- Single Footer Start -->
+                        <div class="col-lg-2 col-md-4 col-sm-6 footer-full">
+                            <div class="single-footer">
+                                <h3 class="footer-title">Let Us Help You</h3>
+                                <div class="footer-content">
+                                    <ul class="footer-list">
+                                        <li><a href="#">Your Orders</a></li>
+                                        <li><a href="#">Shipping</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Footer Start -->
+                    </div>
+                    <!-- Row End -->
+                </div>
+                <!-- Container End -->
+            </div>
+            <!-- Footer Top End -->
+            <!-- Footer Bottom Start -->
+            <div class="footer-bottom off-white-bg2">
+                <div class="container">
+                    <div class="footer-bottom-content">
+                        <p class="copy-right-text">Copyright © <a  href="#">Varsha</a> All Rights Reserved.</p>
+                        
+                    </div>
+                </div>
+                <!-- Container End -->
+            </div>
+            <!-- Footer Bottom End -->
+        </footer>
+        <!-- Footer End -->
+    </div>
+    <!-- Wrapper End -->
+    <!-- jquery 3.12.4 -->
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <!-- mobile menu js  -->
+    <script src="{% static 'js/jquery.meanmenu.min.js' %}"></script>
+    <!-- scroll-up js -->
+    <script src="{% static 'js/jquery.scrollUp.js' %}"></script>
+    <!-- owl-carousel js -->
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <!-- slick js -->
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <!-- wow js -->
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <!-- price slider js -->
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+    <!-- nivo slider js -->
+    <script src="{% static 'js/jquery.nivo.slider.js' %}"></script>
+    <!-- fancybox js -->
+    <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+    <!-- bootstrap -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- popper -->
+    <script src="{% static 'js/popper.js' %}"></script>
+    <!-- plugins -->
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <!-- main js -->
+    <script src="{% static 'js/main.js' %}"></script>
+    
+   
+
+     
+</body>
+
+</html>

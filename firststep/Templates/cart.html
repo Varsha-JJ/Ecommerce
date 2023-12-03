@@ -1,0 +1,419 @@
+{% load  static %}
+<!doctype html>
+<html class="no-js" lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Cart || First-Step</title>
+    <meta name="description" content="Default Description">
+    <meta name="keywords" content="E-commerce" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/icon/favicon.png' %}">
+    <!-- Google Font css -->
+    <link href="https://fonts.googleapis.com/css?family=Lily+Script+One" rel="stylesheet">
+
+    <!-- mobile menu css -->
+    <link rel="stylesheet" href="{% static 'css/meanmenu.min.css' %}">
+    <!-- animate css -->
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <!-- nivo slider css -->
+    <link rel="stylesheet" href="{% static 'css/nivo-slider.css' %}">
+    <!-- owl carousel css -->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <!-- slick css -->
+   <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+    <!-- price slider css -->
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}">
+    <!-- fontawesome css -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+     <!-- fancybox css -->
+    <link rel="stylesheet" href="{% static 'css/jquery.fancybox.css' %}">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- default css  -->
+    <link rel="stylesheet" href="{% static 'css/default.css' %}">
+    <!-- style css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+    <!-- modernizr js -->
+    <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Wrapper Start -->
+    <div class="wrapper">
+        <!-- Header Area Start -->
+        <header>
+            <!-- Header Top Start -->
+            <div class="header-top">
+                <div class="container">
+                    <div class="row">
+                        <!-- Header Top left Start -->                        
+                        <div class="col-lg-4 col-md-12 d-center">
+                            <div class="header-top-left">
+                                <!-- <img src="img/icon/call.png" alt="">Call Us : +11 222 3333 -->
+                            </div>                        
+                        </div>
+                        <!-- Header Top left End -->
+                        <!-- Search Box Start -->                                        
+                        <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+                            <div class="search-box-view">
+                                <form action="#">
+                                    <input type="text" class="email" placeholder="Search Your Product" name="product">
+                                    <button type="submit" class="submit"></button>
+                                </form>
+                            </div>                                           
+                        </div>
+                        <!-- Search Box End --> 
+                        <!-- Header Top Right Start -->                                       
+                        <div class="col-lg-4 col-md-12">
+                            <div class="header-top-right">
+                                <ul class="header-list-menu f-right">
+                                    <!-- Language Start -->
+                                    <!-- <li><a href="#">Language: English <i class="fa fa-angle-down"></i></a>
+                                        <ul class="ht-dropdown">
+                                            <li><a href="#">Spanish</a></li>
+                                            <li><a href="#">Bengali</a></li>
+                                            <li><a href="#">Russian</a></li>
+                                        </ul>
+                                    </li> -->
+                                    <!-- Language End -->                                
+                                    <!-- Currency Start -->
+                                    <!-- <li><a href="#">Currency:  USD <i class="fa fa-angle-down"></i></a>
+                                        <ul class="ht-dropdown">
+                                            <li><a href="#">USD</a></li>
+                                            <li><a href="#">GBP</a></li>
+                                            <li><a href="#">EUR</a></li>
+                                        </ul>
+                                    </li> -->
+                                    <!-- Currency End -->
+                                </ul>
+                                <!-- Header-list-menu End -->
+                            </div>
+                        </div>
+                        <!-- Header Top Right End -->
+                    </div>
+                </div>
+                <!-- Container End -->
+            </div>
+            <!-- Header Top End -->
+            <!-- Header Bottom Start -->
+            <div class="header-bottom header-sticky">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-2 col-sm-5 col-5">
+                            <div class="logo">
+                                <a href="{% url 'home' %}"><img src="{% static 'img/logo/logo.png' %}" alt="logo-image"></a>
+                            </div>
+                        </div>
+                        <!-- Primary Vertical-Menu End -->
+                        <!-- Search Box Start -->
+                        <div class="col-xl-6 col-lg-7 d-none d-lg-block">
+                            <div class="middle-menu pull-right">
+                                <nav>
+                                    <ul class="middle-menu-list">
+                                        <li><a href="{% url 'home' %}">home</a>
+                                            <!-- Home Version Dropdown Start -->
+                                            <!-- <ul class="ht-dropdown home-dropdown">
+                                                <li><a href="index.html">Home Version One</a></li>
+                                                <li><a href="index-2.html">Home Version Two</a></li>
+                                                <li><a href="index-3.html">Home Box Layout</a></li>
+                                            </ul> -->
+                                            <!-- Home Version Dropdown End -->
+                                        </li>
+                                        <li><a href="{% url 'shop' %}">All category</a></li>
+                                        <!-- <li><a href="{% url 'boys' %}">Boys</a> -->
+                                            <!-- Home Version Dropdown Start -->
+                                            <!-- <ul class="ht-dropdown dropdown-style-two">
+                                                <li><a href="{% url 'shop' %}">All Dresses</a>
+                                                </li>
+                                                <li><a href="{% url 'shop' %}">Trouser</a></li>
+                                                <li><a href="{% url 'shop' %}">Shirts</a></li>
+                                            </ul> -->
+                                            <!-- Home Version Dropdown End -->
+                                        <!-- </li> -->
+                                        <!-- <li><a href="{% url 'girls' %}">Girls</a> -->
+                                        <li><a href="{% url 'aboutus' %}">ABOUT US</a> </li>
+
+                                            <!-- Home Version Dropdown Start -->
+                                            <!-- <ul class="ht-dropdown dropdown-style-two">
+                                                <li><a href="{% url 'shop' %}">All dresses</a></li>
+                                                <li><a href="{% url 'shop' %}">Frock</a></li>
+                                                <li><a href="{% url 'shop' %}">Top&Skirt</a></li>
+                                            </ul> -->
+                                            <!-- Home Version Dropdown End -->
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- Search Box End -->
+                        <!-- Cartt Box Start -->
+                        <div class="col-lg-3 col-sm-7 col-7">
+                            <div class="cart-box text-right">
+                                <ul>
+                                    {% if user.is_authenticated %}
+                                    <li>{{user.first_name}} <i class="fa fa-angle-down"></i></i>
+                                        <ul class="ht-dropdown">
+                                            <li><a href="{% url 'account' %}">My profile</a></li>
+                                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                                        </ul>
+                                    </li>
+                                    {% else %}
+                                    <li><a href="#"><i class="fa fa-user"></i></a>
+                                        <ul class="ht-dropdown">
+                                            <li><a href="{% url 'login' %}">Login</a></li>
+                                            <li><a href="{% url 'register' %}">Register</a></li>
+                                        </ul>
+                                    </li>
+                                    {% endif %}                                    
+                                    <li><a href="{% url 'view_wishlist' %}"><i class="fa fa-heart-o"></i><span class="cart-counter">{{w_count}}</span></a></li>
+                                    <li><a href="{% url 'cart' %}"><i class="fa fa-shopping-basket"></i><span class="cart-counter">{{count}}</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Cartt Box End -->
+                        <!-- Mobile Menu  End -->                        
+                    </div>
+                    <!-- Row End -->
+                </div>
+                <!-- Container End -->
+            </div>
+            <!-- Header Bottom End -->
+        </header>
+        <!-- Header Area End -->     
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-area pt-60 pb-55 pt-sm-30 pb-sm-20">
+            <div class="container">
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li class="active"><a href="{% url 'cart' %}">Cart</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Breadcrumb End -->
+        <!-- Cart Main Area Start -->
+        <div class="cart-main-area pb-80 pb-sm-50">
+            <div class="container">
+               <h2 class="text-capitalize sub-heading">cart</h2>
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Form Start -->
+                        <form action="#">
+                            {% csrf_token %}
+                            {% if not cart %}
+
+                            <div style="height:300px;text-align: center;">
+                                  <h2 style="font-family: sans-serif;color: rgb(246,86, 12);">Your Cart is Empty !!!!</h2><br>
+                                  <div class="button-area">
+                                    <a href="{% url 'shop' %}"style="font-weight:bold;color:rgb(240, 16, 16);">Continue Shopping</a>
+                                    </div>
+                            </div>
+                                
+                            {% else %}
+                            <!-- Table Content Start -->
+                            <div class="table-content table-responsive mb-50">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="product-thumbnail">Image</th>
+                                            <th class="product-name">Product</th>
+                                            <th class="product-price">Price</th>
+                                            <th class="product-quantity">Quantity</th>
+                                            <th class="product-subtotal">Total</th>
+                                            <th class="product-remove">Remove</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for i in cart %}
+                                        <tr>
+                                            <td class="product-thumbnail">
+                                                <a href="{% url 'product_detail' i.product_id %}"><img src="{{i.product.products_image.url}}" alt="cart-image" /></a>
+                                            </td>
+                                            <td class="product-name"><a href="#">{{i.product.name}}</a></td>
+                                            <td class="product-price"><span class="amount">Rs.{{i.product.price}}</span></td> 
+                                            <td class="product-price"><span class="amount">{{i.size}}</span></td>
+                                            <td class="product-quantity"><a class="plus-a" data-max="1000" href="{% url 'plusqty' i.id %}">&#43;</a><input type="text" value="{{i.product_qty}}" /><a class="minus-a" data-min="1" href="{% url 'minusqty' i.id %}">&#45;</a></td>
+                                            <td class="product-subtotal">Rs.{{i.price}}</td>
+                                            <td class="product-remove"> <a href="{% url 'de_cart' i.id %}"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                        </tr>
+                                        {% endfor %}
+                                        <!-- <tr>
+                                            <td class="product-thumbnail">
+                                                <a href="#"><img src="{% static 'img/products/2.jpg' %}" alt="cart-image" /></a>
+                                            </td>
+                                            <td class="product-name"><a href="#">Products Name Here</a></td>
+                                            <td class="product-price"><span class="amount">£50.00</span></td>
+                                            <td class="product-quantity"><input type="number" value="1" /></td>
+                                            <td class="product-subtotal">£50.00</td>
+                                            <td class="product-remove"> <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                        </tr> -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- Table Content Start -->
+                            <div class="row">
+                               <!-- Cart Button Start -->
+                                <div class="col-lg-8 col-md-7">
+                                    <div class="buttons-cart">
+                                        <!-- <input type="submit" value="Update Cart" /> -->
+                                        <a href="{% url 'shop' %}">Continue Shopping</a>
+                                    </div>
+                                </div>
+                                <!-- Cart Button Start -->
+                                <!-- Cart Totals Start -->
+                                <div class="col-lg-4 col-md-12">
+                                    <div class="cart_totals">
+                                        <h2>Cart Totals</h2>
+                                        <br />
+                                        <table>
+                                            <tbody>
+                                                <tr class="cart-subtotal">
+                                                    <th>Subtotal</th>
+                                                    <td><span class="amount">{{total}}</span></td>
+                                                </tr>
+                                                <tr class="order-total">
+                                                    <th>Total</th>
+                                                    <td>
+                                                        <strong><span class="amount">{{total}}</span></strong>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="wc-proceed-to-checkout">
+                                            <a href="{% url 'checkout' %}">Proceed to Checkout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Cart Totals End -->
+                            </div>
+                            <!-- Row End -->
+                            {% endif %}
+                        </form>
+                        <!-- Form End -->
+                    </div>
+                </div>
+                 <!-- Row End -->
+            </div>
+        </div>
+        <!-- Cart Main Area End -->
+        <!-- Brand Logo Start -->
+        
+                <!-- Brand Banner End -->                
+          
+        <!-- Brand Logo End -->
+
+        <footer class="off-white-bg">
+            <div class="footer-top pt-50 pb-60">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 mr-auto ml-auto">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Single Footer Start -->
+                        <div class="col-lg-4  col-md-7 col-sm-6">
+                            <div class="single-footer">
+                                <h3>Contact us</h3>
+                                <div class="footer-content">
+                                    <div class="loc-address">
+                                        <span><i class="fa fa-map-marker"></i>kottayam</span>
+                                        <span><i class="fa fa-envelope-o"></i>Mail Us : firststep@gmail.com</span>
+                                        <span><i class="fa fa-phone"></i>Phone: + 91 254 254565 54</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Footer Start -->
+                        <!-- Single Footer Start -->
+                        <div class="col-lg-2  col-md-5 col-sm-6 footer-full">
+
+                        </div>
+                        <!-- Single Footer Start -->
+                        <!-- Single Footer Start -->
+                        <div class="col-lg-2  col-md-4 col-md-4 col-sm-6 footer-full">
+
+                        </div>
+                        <!-- Single Footer Start -->
+                        <!-- Single Footer Start -->
+                        <div class="col-lg-2 col-md-4 col-sm-6 footer-full">
+
+                        </div>
+                        <!-- Single Footer Start -->
+                        <!-- Single Footer Start -->
+                        <div class="col-lg-2 col-md-4 col-sm-6 footer-full">
+                            <div class="single-footer">
+                                <h3 class="footer-title">Let Us Help You</h3>
+                                <div class="footer-content">
+                                    <ul class="footer-list">
+                                        <li><a href="#">Your Orders</a></li>
+                                        <li><a href="#">Shipping</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Footer Start -->
+                    </div>
+                    <!-- Row End -->
+                </div>
+                <!-- Container End -->
+            </div>
+            <!-- Footer Top End -->
+            <!-- Footer Bottom Start -->
+            <div class="footer-bottom off-white-bg2">
+                <div class="container">
+                    <div class="footer-bottom-content">
+                        <p class="copy-right-text">Copyright © <a  href="#">Varsha</a> All Rights Reserved.</p>
+
+                    </div>
+                </div>
+                <!-- Container End -->
+            </div>
+            <!-- Footer Bottom End -->
+        </footer>
+        <!-- Footer End -->
+    </div>
+    <!-- Wrapper End -->
+    <!-- jquery 3.12.4 -->
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <!-- mobile menu js  -->
+    <script src="{% static 'js/jquery.meanmenu.min.js' %}"></script>
+    <!-- scroll-up js -->
+    <script src="{% static 'js/jquery.scrollUp.js' %}"></script>
+    <!-- owl-carousel js -->
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <!-- slick js -->
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <!-- wow js -->
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <!-- price slider js -->
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+    <!-- nivo slider js -->
+    <script src="{% static 'js/jquery.nivo.slider.js' %}"></script>
+    <!-- fancybox js -->
+    <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+    <!-- bootstrap -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- popper -->
+    <script src="{% static 'js/popper.js' %}"></script>
+    <!-- plugins -->
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <!-- main js -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

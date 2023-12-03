@@ -1,0 +1,60 @@
+{% extends 'admin/adminbase.html' %}
+
+{% block title%}
+<title>Sellers || First-Step</title>
+{% endblock %}
+
+
+
+{% block alert %}
+
+{% include 'admin/alerts.html' %}
+
+{% endblock %} 
+
+{% block download %}
+<div class="card-header"><a href="/seller_detailslog" > <button class="btn btn-sm btn-primary" > Download Details <i class="ti-download pdd-right-5"></i> </button></a></div>
+{% endblock %} 
+
+{% block content %}
+
+<div class="card-header">
+    <strong class="card-title">All Sellers</strong>
+</div>
+<div class="card-body">
+    <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>First name</th>
+                <th>Contact</th> 
+                <th>Email</th> 
+                <th>Approved staff</th>  
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in seller %}
+            <tr>
+                <td>{{s.first_name}}</td>
+                <td>{{s.contact}}</td>
+                <td>{{s.email}}</td>
+                {% if s.approved_staff %}
+                <td><label class="switch switch-text switch-primary switch-pill">
+                    <input type="checkbox" class="switch-input" checked disabled>
+                    <a href="{% url 'admin_sellerapprove' s.id %}" class="switch-label" readonly>On</a>
+                    <!-- <span data-on="On" data-off="Off" class="switch-label" readonly></span> -->
+                    <span class="switch-handle"></span>
+                </label></td>
+                {% else %}
+                <td><label class="switch switch-text switch-primary switch-pill">
+                    <input type="checkbox" class="switch-input" disabled>
+                    <a href="{% url 'admin_sellerapprove' s.id %}" class="switch-label" readonly>On</a>
+                    <span class="switch-handle"></span>
+                </label></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+         </tbody>
+    </table>
+</div>
+
+{% endblock %}

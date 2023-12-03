@@ -1,0 +1,48 @@
+{% extends 'admin/adminbase.html' %}
+
+{% block title%}
+<title>Sellers approve || First-Step</title>
+{% endblock %}
+
+
+{% block alert %}
+
+{% include 'admin/alerts.html' %}
+
+{% endblock %} 
+
+{% block content %}
+<div class="card-header">
+    <strong>Approve seller</strong> 
+</div>
+<div class="card-body card-block">
+    <form method="POST" action="{% url 'admin_approveupdate' %}"  enctype="multipart/form-data"  class="form-horizontal">
+        {% csrf_token %} 
+        <div class="row form-group">
+            <div class="col col-md-3">
+                <label for="hf-email" class=" form-control-label">Seller name</label>
+            </div>
+            <div class="col-12 col-md-9">
+                <input type="text" id="hf-email" name="hf-email" value="{{user.first_name}} {{user.last_name}}" class="form-control" readonly>
+                <input type="text" id="hf-email" name="useid" value="{{user.id}}" class="form-control" hidden>
+            <!-- <span class="help-block">Please enter sub-category name</span> -->
+            </div>
+        </div>
+        <div  class="row form-group">
+            <div class="col col-md-3">
+            <label>Approve</label></div>
+            <div class="col-12 col-md-9">
+            <input type="checkbox" name="approve" {% if user.approved_staff %}checked{% endif %} >
+            <input type="hidden" name="prev_approve" value="{% if user.approved_staff %}True{% else %}False{% endif %}">
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary btn-sm">Approve</button>
+        </div>
+    </form>
+</div>
+
+</div>
+
+
+{% endblock %}

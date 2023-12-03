@@ -1,0 +1,44 @@
+{% extends 'admin/adminbase.html' %}
+
+{% block title%}
+<title>Edit Sub-category || First-Step</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="card-header">
+    <strong>Edit sub-category</strong> 
+</div>
+<div class="card-body card-block">
+    <form action="{% url 'admin_updatesub' %}" method="POST" class="form-horizontal" enctype="multipart/form-data" accept-charset="utf-8">
+        {% csrf_token %}
+        <div class="row form-group">
+            <div class="col col-md-3">
+                <label for="hf-email" class=" form-control-label">Sub category name</label>
+            </div>
+            <div class="col-12 col-md-9">
+                <input type="text" id="cate" name="cate_title" value="{{cates.title}}" class="form-control" required>
+            <!-- <span class="help-block">Please enter sub-category name</span> -->
+        </div>
+        </div>
+        <div class="row form-group">
+            <div class="col col-md-3"><label for="hf-password" class=" form-control-label">Select Category</label></div>
+            <div class="col-12 col-md-9">
+                <input type="text" class="form-control" name="category_id" value="{{cates.id}}" hidden >
+                <input type="text" id="cate" name="cate_name" value="{{cates.category}}" class="form-control" readonly>
+            <!-- <span class="help-block">Please enter your password</span> -->
+        </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+            <!-- <button type="reset" class="btn btn-danger btn-sm">
+                <i class="fa fa-ban"></i> Reset
+            </button> -->
+        </div>
+    </form>
+</div>
+
+</div>
+
+
+{% endblock %}

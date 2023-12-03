@@ -1,0 +1,75 @@
+{% extends 'admin/adminbase.html' %}
+
+{% block title%}
+<title>Size || First-Step</title>
+{% endblock %}
+
+{% block script %}
+<script>
+function validation(){
+        var fname=document.getElementById('f-name').value;
+        var regx = /^(?! )[A-Za-z0-9 !¡\"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]*(?<! )$/;
+
+          if(fname==""){
+             document.getElementById('name').innerHTML="**Please enter your size";
+             return false;
+          }
+          else{
+             document.getElementById('name').innerHTML="";
+          }
+
+          if((fname.length<=2)||(fname.length>20)){
+             document.getElementById('name').innerHTML="**your size must include more characters";
+             return false;
+          }
+          else{
+             document.getElementById('name').innerHTML="";
+          }
+
+        
+          if(!fname.match(/^(?! )[A-Za-z0-9 !¡\"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]*(?<! )$/)){
+
+             document.getElementById('name').innerHTML="**Only characters are allowed";
+             return false;
+
+          }
+          else{
+             document.getElementById('name').innerHTML="";
+          }
+        }
+</script>
+{% endblock %}
+
+
+{% block alert %}
+
+{% include 'admin/alerts.html' %}
+
+{% endblock %}  
+
+
+{% block content %}
+<div class="card-header">
+    <strong>Add size</strong> 
+</div>
+<div class="card-body card-block">
+    <form  method="POST" action="{% url 'admin_addsize' %}" class="form-horizontal" onclick="return validation()" enctype="multipart/form-data" accept-charset="utf-8">
+        {% csrf_token %}
+        <div class="row form-group">
+            <div class="col col-md-3">
+                <label for="hf-email" class=" form-control-label">Enter size</label>
+            </div>
+            <div class="col-12 col-md-9">
+                <input type="text" id="f-name" name="size" placeholder="Enter size..." onkeyup='fnamesizeValidation(this)' class="form-control" required>
+                <span id="name" class="new" style="color: red;"></span>
+        </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary btn-sm">Save</button>
+        </div>
+    </form>
+</div>
+</div>
+
+
+{% endblock %}
